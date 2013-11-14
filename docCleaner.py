@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 11 19:13:15 2013
 
-@author: Jean-Baptiste
-"""
 
 #-------------------------------------------------------------------------------
 # Name: DocCleaner.py
@@ -114,27 +110,27 @@ def main(argv):
         f.extract(name, folder)
     f.close()    
     
-    #Pour chaque fichier listé dans le .path
+    #For each file listed in the .path file
     lines = [line.strip() for line in open(pathfile)]
     for line in lines:
-        #Commencer par récupérer le fichier qui nous intéresse...
+        #We have to retrieve the file we are interested in...
         try:        
             document = openDocument(inputFile, line)
-        #le traiter avec le xsl défini dans transformFile
+        #then, we have to process it with the xsl defined in the command line
             document = transform(document)
         
-        #l'extraire dans le dossier "files"
+        #at last, we extract it in the temporary "files" folder
         
             print os.path.join("files", line)
             saveElement(os.path.join("files", line), document)
         except:
             print "No " + line
 
-    #Dézipper le fichier outputFile
+    #Unzipping the outputFile
     z= zipfile.ZipFile(outputFile, mode='w', compression=zipfile.ZIP_DEFLATED)
     
-    #Copier tout le dossier "files" dans l'ouputFile,
-    #...en écrasant tout ce qui est présent dedans et qui porte le même nom
+    #Copying the whole "files" folder in the outputFile,
+    #...and overwriting existing files
        
     os.chdir("files")
     for root, dirs, files in os.walk("."):
