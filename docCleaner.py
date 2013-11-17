@@ -20,8 +20,7 @@ import os
 import sys, getopt
 import gettext
 import locale
-import logging
- 
+
 def init_localization():
     '''prepare l10n'''
     #print locale.setlocale(locale.LC_ALL,"")
