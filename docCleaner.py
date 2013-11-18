@@ -33,8 +33,7 @@ def init_localization():
 
     try:
         print "Opening message file %s for locale %s" % (filename, loc[0])
-        #TODO : debug the line below, it does not work, at least on windows 7. 
-        #It returns an error message:  "LookupError: unknown encoding: CHARSET"
+        #If the .mo file is badly generated, this line will return an error message:  "LookupError: unknown encoding: CHARSET"
         trans = gettext.GNUtranslations(open(filename, "rb"))
 
     except IOError:
