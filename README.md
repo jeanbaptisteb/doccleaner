@@ -14,24 +14,25 @@ Moreover, it is independant from the OS and the word processor you use.
 
 You need to create a xsl for each processing you want to make to the document. 
 
-The xsl will be applied to all xml "subfiles" contained in the zipped file. A set of these subfiles are defined in the ".path" file (in the "docx" or "odt" subdirectory, you will find a docx.path or odt.path, which contains a list of subfiles pathes).
+The xsl will be applied to all xml "subfiles" contained in the zipped file. A set of these subfiles is defined in the ".path" file (in the "docx" or "odt" subdirectory, you will find a docx.path or odt.path, which contains a list of subfiles pathes).
 
-You can also chose to apply the XSL file only on xml subfiles of your choice, with the -s argument.
+You can also apply the XSL file on xml subfiles of your choice, with the -s argument.
 
 ###Usage :
 
- docCleaner.py 
-    -i "input file" 
-    -o "output file" 
-    -t "xslt file" 
-    (optional) -s "subfile to process, contained in the inputfile"
+docCleaner.py  
+ -i "input file"   
+ -o "output file"   
+ -t "xslt file"  
+ -s "subfile to process, contained in the inputfile" (optional)  
 
-###Example:
+###Examples:
+ To apply the XSL to document.xml, footnotes.xml, endnotes.xml (all contained in the "MyDocToProcess.docx" document):
 
     python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl"
  
-Will apply the XSL to document.xml, footnotes.xml, endnotes.xml (all contained in the "MyDocToProcess.docx" document)
+To apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document:
  
     python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "word/endnotes.xml"
  
-Will apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document.
+
