@@ -9,6 +9,8 @@ It is primarely intended for automating some copyediting tasks (removing local f
 This is often a more efficient and reliable method than using VBA or OOBASIC macros, particularly on large documents.
 Moreover, it is independant from the OS and the word processor you use.
 
+###A word of caution
+For the moment, for security reasons, it should not be used with untrusted documents as input (defusedxml implementation still pending).
 
 ##SHORT DOCUMENTATION
 
