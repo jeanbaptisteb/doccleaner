@@ -15,11 +15,14 @@
 
 import shutil
 import zipfile
-from lxml import etree
+#from lxml import etree
+from defusedxml import lxml
+
 import os
 import sys, getopt
 import gettext
 import locale
+
 
 def init_localization():
     '''prepare l10n'''
@@ -29,12 +32,12 @@ def init_localization():
     # take first two characters of country code
     loc = locale.getlocale()
     
-    filename = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "lang", "messages_%s.mo" % locale.getlocale()[0][0:2])
-
+    #filename = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "lang", "messages_%s.mo" % locale.getlocale()[0][0:2])
+    filename = os.path.join("lang", "messages_%s.mo") % locale.getlocale()[0][0:2]
     try:
         print "Opening message file %s for locale %s" % (filename, loc[0])
-        #If the .mo file is badly generated, this line will return an error message:  "LookupError: unknown encoding: CHARSET"
-        trans = gettext.GNUtranslations(open(filename, "rb"))
+        #If the .mo file is badly generated, this line will return an error message: "LookupError: unknown encoding: CHARSET"
+        trans = gettext.GNUTranslations(open(filename, "rb"))
 
     except IOError:
         print "Locale not found. Using default messages"
@@ -51,7 +54,7 @@ def openDocument(fileName, subFileName):
     
     mydoc = zipfile.ZipFile(fileName)
     xmlcontent = mydoc.read(subFileName)
-    document = etree.fromstring(xmlcontent)
+    document = lxml._etree.fromstring(xmlcontent)
     return document
 
 def createTempFolder(folder):
@@ -63,7 +66,7 @@ def createTempFolder(folder):
 def saveElement(fileName, element):
     #Save a .xml element
     f = open(fileName, 'w')
-    text = etree.tostring(element, pretty_print = True)
+    text = lxml._etree.tostring(element, pretty_print = True)
     f.write(text)
     f.close()
 
@@ -104,7 +107,7 @@ def main(argv):
     except getopt.GetoptError:           
         usage()                          
         sys.exit(2)          
-    
+
     inputFile = None
     outputFile = None
     transformFile = None
@@ -112,7 +115,7 @@ def main(argv):
     
     for opt, arg in opts:
         if opt in ("-i", "--input"): 
-            inputFile = arg                     
+            inputFile = arg   
         elif opt in ("-o", "--output"):
             outputFile = arg
         elif opt in ("-t", "--transform"):
@@ -120,24 +123,33 @@ def main(argv):
             transformFile = arg
         elif opt in ("-s", "--subfile"):
             subFile = arg
-
+    
+    if inputFile == None:
+        sys.exit(2)
+    elif outputFile == None:
+        sys.exit(2)
+    elif transformFile == None:
+        sys.exit(2)
+        
     if checkIfFileExists(inputFile) == False:
         sys.exit(2)
-    
+
+
     #Retrieving the file extension, to know which kind of document we are processing
     inputFile_Name, inputFile_Extension = os.path.splitext(inputFile)
     fileType = inputFile_Extension[1:]
     
     #Retrieving the path of the script's folder
-    script_directory = os.path.dirname(sys.argv[0])
+    script_directory = os.path.dirname(os.path.realpath(sys.argv[0]))
     
     #Retrieving the path containing xsl files for the current format
     #(for instance, for docx processing, xls are in the ./docx/ subdirectory)
-    xslFilesPath = os.path.join(script_directory, fileType)     
+   
+    xslFilesPath = os.path.join(script_directory, fileType)  
+    print "1 : " + xslFilesPath
     xslFilePath = os.path.join(xslFilesPath, transformFile)
-    
-
-    #Check if the path to the xsl file exists (it also prevents the use of external xsl)
+    print "2 : " + xslFilePath
+    #Check if the path to the xsl file is an authorized path
     if checkIfFileExists(xslFilePath) == True:
         transformFile = xslFilePath
     else:
@@ -146,9 +158,10 @@ def main(argv):
         for xslfile in os.listdir(xslFilesPath):
             if xslfile.endswith(".xsl"):
                 print "- " + xslfile
+        sys.exit(2)
 
     #Function to make a xsl transformation with the xsl defined in command line
-    transform = etree.XSLT(etree.parse(transformFile))
+    transform = lxml._etree.XSLT(lxml._etree.parse(transformFile))
 
 
     
@@ -174,7 +187,6 @@ def main(argv):
     #declaring a "lines" list, which is intended to contain a list of original doc subfiles 
     #lines = ['']
     
-    print subFile
     #Check if a subFile has been passed as an argument (-s "subfile name")
     if subFile == None:
         #If no subFile has been passed as an argument, retrieving the list of subfiles from the .path file    
@@ -191,8 +203,7 @@ def main(argv):
         #TODO : each line in the .path file contains a string representing a path, with a "/" path separator.
         #This separator is only valid in Windows, so we will need to replace any "/" found in the "line" var, with the OS path separator (os.sep).
         #Otherwise, the script won't be usable on Mac or Linux.
-        
-        print line    
+           
         #check if each listed file exists...     
         try:
             #Retrieving the document
