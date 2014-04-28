@@ -45,8 +45,11 @@ class WordAddin:
     def __init__(self):
         self.appHostApp = None    
         
-    def clean(self,action):
-        #This is the core of the Word addin : manipulates docs and calls docCleaner
+    def do(self,ctrl):
+    #This is the core of the Word addin : manipulates docs and calls docCleaner
+    #The ctrl argument is a callback for the button the user made an action on (e.g. clicking on it)
+        
+        #Creating a word object inside a wd variable
         wd = win32com.client.Dispatch("Word.Application")
         
         try:
@@ -64,11 +67,11 @@ class WordAddin:
                                       '~' + wd.ActiveDocument.Name)
                 
                 #Then, we take the current active document as input, the temp doc as output
-                #+ the XSL file passed as argument ("action" variable)
+                #+ the XSL file passed as argument ("ctrl. Tag" variable, which is a callback for the ribbon button tag)
                 docCleaner.main(['--input', str(originDoc), 
                              '--output', newDoc, 
                              '--transform', os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                                         "docx", action + ".xsl")
+                                                         "docx", str(ctrl. Tag) + ".xsl")
                              ])
                 
 
@@ -93,16 +96,10 @@ class WordAddin:
                 
             else:
                 win32ui.MessageBox("You need to save the file before launching this script!"
-                ,"PythonTest",win32con.MB_OK)
+                ,"Error",win32con.MB_OK)
 
         except Exception, e:
             win32ui.MessageBox(str(e),"PythonTest",win32con.MB_OKCANCEL)
-
-    def do(self,ctrl):
-        
-        self.clean("cleanDirectFormatting")
-        #win32ui.MessageBox(wd.ActiveDocument.FullName,"PythonTest",win32con.MB_OKCANCEL)
-        
 
             
            
@@ -113,26 +110,41 @@ class WordAddin:
         return i
 
     def GetCustomUI(self,control):
-        s = '''
-            <customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
-              <ribbon startFromScratch="false">
-                <tabs>
-                  <tab id="CustomTab" label="Sample tab">
-                    <group id="MainGroup" label="Sample group">
-                      <button id="Button" label="Sample button 1" imageMso="HappyFace" 
-                        size="large" onAction="do" />
-                        
-                      <button id="Button2" label="Sample button 2" getImage='GetImage' 
-                        size="large" onAction="do" />
-
-                    </group>
-
-                  </tab>
-                </tabs>
-              </ribbon>
-            </customUI>
-        '''
+        ribbonHeader = '''<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+                            <ribbon startFromScratch="false">
+                                   <tabs>
+                                          <tab id="CustomTab" label="Sample tab">
+                                                 <group id="MainGroup" label="Sample group">
+                       '''
+        
+        ribbonFooter = '''</group>       
+                     </tab>        
+                     </tabs>        
+                     </ribbon>        
+                     </customUI>        
+                 '''       
+        
+        ribbonBody = ""
+        
+        buttonsNumber = 0
+        
+        #Generating dynamically the buttons of the ribbon, according to the available XSL sheets for the docx format
+        for path, subdirs, files in os.walk(os.path.join(os.path.dirname(os.path.realpath(__file__)), "docx")):      
+            for filename in files:       
+                if filename.endswith(".xsl"):      
+                    buttonsNumber += 1
+        
+                    ribbonBody += '''<button id="{0}" label="{1}" imageMso="HappyFace"
+                                size="large" onAction="{2}" tag="{3}"/>'''.format(
+                                "Button" + str(buttonsNumber),  #id 
+                                str(filename[:-4]),             #label #TODO : localization
+                                "do",                           #action
+                                (str(filename[:-4]))            #tag 
+                                )
+                
+        s = ribbonHeader + ribbonBody + ribbonFooter
         return s
+
         
     def OnConnection(self, application, connectMode, addin, custom):
         print "OnConnection", application, connectMode, addin, custom
