@@ -65,7 +65,7 @@ class WordAddin:
     config = ConfigParser.ConfigParser()
     
     _com_interfaces_ = ['_IDTExtensibility2', 'IRibbonExtensibility']
-    _public_methods_ = ['clean', 'do','GetImage']
+    _public_methods_ = ['do','GetImage']
     _reg_clsctx_ = pythoncom.CLSCTX_INPROC_SERVER
     _reg_clsid_ = "{C5482ECA-F559-45A0-B078-B2036E6F011A}"
     _reg_progid_ = "Python.DocCleaner.WordAddin"
