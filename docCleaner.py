@@ -22,7 +22,7 @@ import os
 import sys, getopt
 import gettext
 import locale
-
+import tempfile
 
 def init_localization():
     '''prepare l10n'''
@@ -57,12 +57,6 @@ def openDocument(fileName, subFileName):
     document = lxml._etree.fromstring(xmlcontent)
     return document
 
-def createTempFolder(folder):
-    #Create a temp folder
-    if os.path.exists(folder):
-        shutil.rmtree(folder)
-    os.mkdir(folder)
-
 def saveElement(fileName, element):
     #Save a .xml element
     f = open(fileName, 'w')
@@ -77,6 +71,7 @@ def usage():
     print _(" -i <inputFile.docx>")
     print _(" -o <outputFile.docx>")
     print _(" -t <transformFile.xsl>")
+    print _(" -p <XSLparameter=value>")
 
 def checkCommandline(inputArg):
     if os.path.isfile(inputArg) == True:
@@ -95,14 +90,14 @@ def checkIfFileExists(fileToCheck):
         return True
     
     except IOError:
-        print  _("%s does not exist!") % fileToCheck
+        print  ("%s does not exist!") % fileToCheck
         return False
 #MAIN---------------------------------------------------------------------------
 
 def main(argv):
-    
+
     try:                                
-        opts, args = getopt.getopt(argv, "i:o:t:s:", ["input=", "output=", "transform=", "subfile="])
+        opts, args = getopt.getopt(argv, "i:o:t:s:p:", ["input=", "output=", "transform=", "subfile=", "XSLparameter="])
         
     except getopt.GetoptError:           
         usage()                          
@@ -112,17 +107,23 @@ def main(argv):
     outputFile = None
     transformFile = None
     subFile = None
-    
+    XSLparameter = None
     for opt, arg in opts:
+        #input file
         if opt in ("-i", "--input"): 
             inputFile = arg   
+        #output file
         elif opt in ("-o", "--output"):
             outputFile = arg
+        #XSL transformation sheet
         elif opt in ("-t", "--transform"):
-            #Will have to forbid the use of a path to a xsl
             transformFile = arg
+        #optional : relative path of the XML files to process in the zipped doc
         elif opt in ("-s", "--subfile"):
             subFile = arg
+        #optional : parameters to pass to the XSL sheet (to pass the argument "$foo='true'" et "$foo2='yes'", use --parameter "foo='true',foo2='yes'")
+        elif opt in ("-p", "--XSLparameter"):
+            XSLparameter = arg
     
     if inputFile == None:
         sys.exit(2)
@@ -140,8 +141,8 @@ def main(argv):
     fileType = inputFile_Extension[1:]
     
     #Retrieving the path of the script's folder
-    script_directory = os.path.dirname(os.path.realpath(sys.argv[0]))
-    
+    script_directory = os.path.dirname(os.path.realpath(__file__)) #Will have to replace __file__ by sys.argv[0]) when freezing with py2exe
+
     #Retrieving the path containing xsl files for the current format
     #(for instance, for docx processing, xls are in the ./docx/ subdirectory)
    
@@ -160,6 +161,7 @@ def main(argv):
                 print "- " + xslfile
         sys.exit(2)
 
+    
     #Function to make a xsl transformation with the xsl defined in command line
     transform = lxml._etree.XSLT(lxml._etree.parse(transformFile))
 
@@ -174,10 +176,9 @@ def main(argv):
     #Creating a copy of the sourceFile
     createDocument(inputFile, outputFile)
     
-    #Creating a temp "files" folder
-    folder = "files"
-    createTempFolder(folder)
-    
+    #Creating a temp folder
+    folder = tempfile.mkdtemp()
+
     #Fill the folder with all files zipped in the input file
     f = zipfile.ZipFile(outputFile, mode='r', compression=zipfile.ZIP_DEFLATED)
     for name in f.namelist():
@@ -187,54 +188,100 @@ def main(argv):
     #declaring a "lines" list, which is intended to contain a list of original doc subfiles 
     #lines = ['']
     
+    #Check if a parameter has been passed for the xsl
+    if XSLparameter != None:
+        
+        #Convert the XSL parameter into a list, splitting with a semi-colon (;)
+        #NB : 1 list element = one argument to use on the next XSL processing, not in the current XSL processing
+        #To use parameters simulteanously, split them with a comma (,) inside a larger split with semi-colon
+        #Example : i want to use simulteanously a "foo" and "foo2" parameters, and then make a second XSL processing with "foo3" and "foo4" parameters :
+            #--XSLparameter foo1='my value 1',foo2='my value 2';foo3='my value 3', foo4='my value 4'
+        XSLparameter = XSLparameter.split(",") 
+
+
+    else:        
+        XSLparameter = None
+        
     #Check if a subFile has been passed as an argument (-s "subfile name")
     if subFile == None:
         #If no subFile has been passed as an argument, retrieving the list of subfiles from the .path file    
         lines = [line.strip() for line in open(pathfile)]
+        
+    elif subFile == "":
+        lines = [line.strip() for line in open(pathfile)]
+        
     else:
     #If a subfile has been passed as an argument, process it exclusively
         #The argument can contain a list of files, separated by a comma
-    
-        lines = subFile.split(",")
-
+        lines = [line.strip() for line in subFile.split(",")]
+        
     #For each file listed in the "lines" list    
-    
     for line in lines:
         #TODO : each line in the .path file contains a string representing a path, with a "/" path separator.
         #This separator is only valid in Windows, so we will need to replace any "/" found in the "line" var, with the OS path separator (os.sep).
         #Otherwise, the script won't be usable on Mac or Linux.
            
+        #DEBUG
         #check if each listed file exists...     
         try:
             #Retrieving the document
             document = openDocument(inputFile, line)
-        
             #Process it with the xsl file defined as transformFile (with the -t commandline)
-            document = transform(document)
-        
-            #Extract it to the temp "files" folder
-        
-            #print os.path.join("files", line)
-            saveElement(os.path.join("files", line), document)
-        #if file doesn't exist, do not try to process it
-        except:
-            print _("%s does not exist!") % line
-            pass
+            
+            #If some parameters have been passed, they are in a list "XSLparameter"
+            
+            if XSLparameter != None:
+                
+                paramDict = {}
+                #for each element separated by a coma (for instance "fooA=value A,fooB=value B", we'll make 2 processings: one for "fooA=value A", another one for "fooB=value B"
+                for element in XSLparameter:      
+                    try:
+                        #If we have several parameters, separated by a comma -> generator comprehension                        
+                        paramDict = dict(item.split(",") for item in element.split('='))
 
+                    except:
+                        #if we have only one parameter
+                        paramDict[str(element.split("=")[0])] = (str(element.split("=")[1]))
+                        
+                #Pass all the parameters simulteanously
+                document = transform(document, **paramDict)#, **paramDict)#, paramDict)
+
+
+            elif XSLparameter == "":
+                #Empty parameter, don't pass it
+                document = transform(document)
+            else:
+                #Any other case (e.g. no parameter), don't pass it
+                document = transform(document)
+
+           
+
+            #Extract it to the temp "files" folder
+            #print os.path.join("files", line)
+            saveElement(os.path.join(folder, line), document)
+        #if file doesn't exist, do not try to process it
+        except Exception,e:
+            print _("line %s does not exist!") %  line
+            pass
     #Unzip the outputFIle
     z= zipfile.ZipFile(outputFile, mode='w', compression=zipfile.ZIP_DEFLATED)
     
     #Copy all the "files" in the outputFile
     #...and overwrite existing files
     
-    os.chdir("files")
+    os.chdir(folder)
     for root, dirs, files in os.walk("."):
         for f in files:
             z.write(os.path.join(root, f))
     os.chdir("..")
     z.close() 
+    #Deleting the temp folder
 
+    try:
+        shutil.rmtree(folder)
+        print folder + " deleted"
+    except:
+        pass
 if __name__ == '__main__':
-
     init_localization()
     main(sys.argv[1:])
