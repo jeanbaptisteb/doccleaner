@@ -1,4 +1,3 @@
-
 #coding: utf-8 -*-
 
 #This is just a proof of concept with probably a lot of bugs, use at your own risks!
@@ -24,6 +23,13 @@ import docCleaner
 import os
 import win32ui
 import win32con
+import locale
+import gettext
+import ConfigParser
+import localization
+import tempfile
+import shutil
+
 # Support for COM objects we use.
 gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 1, bForDemand=True) # Office 9
 gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, bForDemand=True)
@@ -32,9 +38,32 @@ gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, bForDem
 universal.RegisterInterfaces('{AC0714F2-3D04-11D1-AE7D-00A0C90F26F4}', 0, 1, 0, ["_IDTExtensibility2"])
 universal.RegisterInterfaces('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, ["IRibbonExtensibility", "IRibbonControl"])
 
+
 #TODO : localization
-       
+def init_localization():
+    '''prepare l10n'''
+    print locale.setlocale(locale.LC_ALL,"")
+    locale.setlocale(locale.LC_ALL, '') # use user's preferred locale
+
+    # take first two characters of country code
+    loc = locale.getlocale()
+    
+    #filename = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "lang", "messages_%s.mo" % locale.getlocale()[0][0:2])
+    filename = os.path.join("lang", "messages_{0}.mo").format(locale.getlocale()[0][0:2])
+    try:
+        print "Opening message file {0} for locale {1}".format(filename, loc[0])
+        #If the .mo file is badly generated, this line will return an error message: "LookupError: unknown encoding: CHARSET"
+        trans = gettext.GNUTranslations(open(filename, "rb"))
+
+    except IOError:
+        print "Locale not found. Using default messages"
+        trans = gettext.NullTranslations()
+
+    trans.install()
 class WordAddin:
+    
+    config = ConfigParser.ConfigParser()
+    
     _com_interfaces_ = ['_IDTExtensibility2', 'IRibbonExtensibility']
     _public_methods_ = ['clean', 'do','GetImage']
     _reg_clsctx_ = pythoncom.CLSCTX_INPROC_SERVER
@@ -44,49 +73,83 @@ class WordAddin:
 
     def __init__(self):
         self.appHostApp = None    
+
         
     def do(self,ctrl):
     #This is the core of the Word addin : manipulates docs and calls docCleaner
     #The ctrl argument is a callback for the button the user made an action on (e.g. clicking on it)
-        
+
         #Creating a word object inside a wd variable
         wd = win32com.client.Dispatch("Word.Application")
-        
+
         try:
             #Check if the file is not a new one (unsaved)
             if os.path.isfile(wd.ActiveDocument.FullName) == True:
                 #Before processing the doc, let's save the user's last modifications
                 wd.ActiveDocument.Save      
                 
-                #Put the path of the current file in a variable
-                originDoc = wd.ActiveDocument.FullName
+                originDoc = wd.ActiveDocument.FullName #:Puts the path of the current file in a variable
+                tmp_dir = tempfile.mkdtemp() #:Creates a temp folder, which will contain the temp docx files necessary for processing        
+                transitionalDoc = originDoc #:Creates a temp transitional doc, which will be used if we need to make consecutive XSLT processings. #E.g..: original doc -> xslt processing -> transitional doc -> xslt processing -> final doc -> copying to original doc                
+                newDoc = os.path.join(tmp_dir, "~" + wd.ActiveDocument.Name) #:Creates a temporary file (newDoc), which will be the docCleaner output
                 
-                #Create a temporary file (newDoc), which will be the docCleaner output
-                #TODO : check if the output file does not exist yet; if it does, will have to add another prefix
-                newDoc = os.path.join(wd.ActiveDocument.Path,
-                                      '~' + wd.ActiveDocument.Name)
+                jj = 0 #:This variable will be increased by one for each XSL parameter defined in the wordAddin_xx.ini file (separated by a semi-colon ;). Used for handling temp docx filenames, and for subfiles consecutive processing (vs. simulteanous processing, which is already handled in the docCleaner script)
                 
                 #Then, we take the current active document as input, the temp doc as output
                 #+ the XSL file passed as argument ("ctrl. Tag" variable, which is a callback for the ribbon button tag)
-                docCleaner.main(['--input', str(originDoc), 
-                             '--output', newDoc, 
-                             '--transform', os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                                         "docx", str(ctrl. Tag) + ".xsl")
-                             ])
                 
+                #Check if the XSLparameter contains a semi-colon, which means we have to make several XSL processing
+                try:                
+                    XSLparameters = self.config.get(str(ctrl. Tag), 'XSLparameter').split(";")
+                except:
+                    XSLparameters = ""
+                
+                if XSLparameters != None:
+                
+                    for XSLparameter in XSLparameters:
 
-                #Opening the temp file, make it invisible
-                wd.Documents.Open(newDoc).Visible = 0
+                        #Check if there are subfiles to process consecutively instead of simulteanously (separated by a semi-colon instead of a comma)
+                        #NB : the script implies that in the ini file, we can have:
+                        # 1) one XSL parameter, and a single subfiles processing
+                        # 2) multiple XSL parameters, and the exact same number of consecutive subfiles processings
+                        # 3) multiple XSL parameters, and a single subfiles processing
+                        #We can never have multiple subfiles and a single XSL processing, because this use case is handled separately by the docCleaner script. If we're in this case, simply split subfiles with commas (",") instead of semi-colon (";")
+                        try:
+                            subFileArg = str(self.config.get(str(ctrl. Tag), 'subfile')).split(";")[jj]
+                            
+                        except:
+                            #Probably a "out of range" error, which means there is a single subfiles string to process
+                            subFileArg = self.config.get(str(ctrl. Tag), 'subfile')
+
+                        if jj > 0:
+                           
+                            #If there is more than one XSL parameter, we'll have to make consecutive processings
+                            newDocName, newDocExtension = os.path.splitext(newDoc)
+                            transitionalDoc = newDoc
+                            newDoc =  newDocName + str(jj)+ newDocExtension 
+                 
+                                         
+                        docCleaner.main(['--input', str(transitionalDoc), 
+                                     '--output', str(newDoc), 
+                                     '--transform', os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                                                 "docx", str(ctrl. Tag) + ".xsl"),
+                                    '--subfile', subFileArg,
+                                     '--XSLparameter', XSLparameter
+                                     ]) 
+
+
+                        jj +=1
+                            
+                #Opening the temp file
+                wd.Documents.Open(newDoc)
             
                 #Copying the temp file content to the original doc                
-                #To do this, NEVER use the MSO Content.Copy() and Content.Paste() methods, because :
+                #To do this, never use the MSO Content.Copy() and Content.Paste() methods, because :
                 # 1) It would overwrite important data the user may have copied to the clipboard.
                 # 2) Other programs, like antiviruses, may use simulteanously the clipboard, which would result in a big mess for the user.
-                # 3) Why does it even exist?
-                #Instead, use the Content.FormattedText function, it's simple, elegant, and takes just one line of code:
+                #Instead, use the Content.FormattedText function, it's simple, and takes just one line of code:
                 wd.Documents(originDoc).Content.FormattedText = wd.Documents(newDoc).Content.FormattedText
 
-             
                 #Closing and removing the temp document                
                 wd.Documents(newDoc).Close()
                 os.remove(newDoc) 
@@ -94,22 +157,40 @@ class WordAddin:
                 #Saving the changes
                 wd.Documents(originDoc).Save
                 
+                #Removing the whole temp folder
+                try:
+                    shutil.rmtree(tmp_dir)
+                except:
+                    #TODO: What kind of error would be possible when removing the temp folder? How to handle it?
+                    pass
+                
             else:
                 win32ui.MessageBox("You need to save the file before launching this script!"
                 ,"Error",win32con.MB_OK)
 
         except Exception, e:
-            win32ui.MessageBox(str(e),"PythonTest",win32con.MB_OKCANCEL)
+            
+            tb = sys.exc_info()[2]
+            
+            win32ui.MessageBox(str(e) + "\n" +
+            str(tb.tb_lineno)+ "\n" +
+            str(newDoc)
+            ,"Error",win32con.MB_OKCANCEL)
 
             
            
     def GetImage(self,ctrl):
+        #TODO : Is this function actually useful?
+        #TODO : Retrieving the path from the conf file
         from gdiplus import LoadImage
-        i = LoadImage( 'c:/path.png' )
-        print i, 'ddd'
+        i = LoadImage( 'path/to/image.png' )
         return i
 
     def GetCustomUI(self,control):
+        #Getting the button variables from the localized ini file
+        #TODO : 
+        self.config.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'wordAddin_'+ str(locale.getlocale()[0][0:2]) +'.ini'))
+        #Constructing the Word ribbon XML                                          
         ribbonHeader = '''<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
                             <ribbon startFromScratch="false">
                                    <tabs>
@@ -124,24 +205,26 @@ class WordAddin:
                      </customUI>        
                  '''       
         
+        #Initializing the ribbon body
         ribbonBody = ""
-        
         buttonsNumber = 0
-        
+
         #Generating dynamically the buttons of the ribbon, according to the available XSL sheets for the docx format
         for path, subdirs, files in os.walk(os.path.join(os.path.dirname(os.path.realpath(__file__)), "docx")):      
             for filename in files:       
                 if filename.endswith(".xsl"):      
                     buttonsNumber += 1
-        
-                    ribbonBody += '''<button id="{0}" label="{1}" imageMso="HappyFace"
-                                size="large" onAction="{2}" tag="{3}"/>'''.format(
-                                "Button" + str(buttonsNumber),  #id 
-                                str(filename[:-4]),             #label #TODO : localization
-                                "do",                           #action
-                                (str(filename[:-4]))            #tag 
+                    
+                    ribbonBody += '''<button id="{0}" label="{1}" imageMso="{2}"
+                                size="{3}" onAction="{4}" tag="{5}"/>'''.format(
+                                "Button" + str(buttonsNumber),              #variable {0} : id 
+                                self.config.get(filename[:-4], 'label'),    #variable {1} : label, from the ini file
+                                self.config.get(filename[:-4], 'imageMso'), #variable {2} : button icon from the ini file
+                                self.config.get(filename[:-4], 'size'),     #variable {3} : button size from ini file
+                                self.config.get(filename[:-4], 'onAction'), #variable {4} : action from ini file. Call the function do() most of time (onAction=do)
+                                str(filename[:-4])                          #variable {5} : button tag 
                                 )
-                
+        #Generating the final XML for the ribbon
         s = ribbonHeader + ribbonBody + ribbonFooter
         return s
 
@@ -183,7 +266,7 @@ def RegisterAddin(klass):
     subkey = _winreg.CreateKey(key, klass._reg_progid_)
     _winreg.SetValueEx(subkey, "CommandLineSafe", 0, _winreg.REG_DWORD, 0)
     _winreg.SetValueEx(subkey, "LoadBehavior", 0, _winreg.REG_DWORD, 3)
-    _winreg.SetValueEx(subkey, "Description", 0, _winreg.REG_SZ, "Word Addin")
+    _winreg.SetValueEx(subkey, "Description", 0, _winreg.REG_SZ, "DocCleaner Word Addin")
     _winreg.SetValueEx(subkey, "FriendlyName", 0, _winreg.REG_SZ, "DocCleaner Word Addin")
 
 def UnregisterAddin(klass):
@@ -194,10 +277,11 @@ def UnregisterAddin(klass):
         pass
 
 if __name__ == '__main__':
+    init_localization()
+    
     import win32com.server.register
     win32com.server.register.UseCommandLine( WordAddin )
     if "--unregister" in sys.argv:
         UnregisterAddin( WordAddin )
     else:
         RegisterAddin( WordAddin )
-
