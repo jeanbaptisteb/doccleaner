@@ -187,9 +187,9 @@ class WordAddin:
         return i
 
     def GetCustomUI(self,control):
-        #Getting the button variables from the localized ini file
-        #TODO : 
-        self.config.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'wordAddin_'+ str(locale.getlocale()[0][0:2]) +'.ini'))
+        #TODO :  Getting the button variables from the localized ini file
+        
+        self.config.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'wordAddin_fr.ini'))
         #Constructing the Word ribbon XML                                          
         ribbonHeader = '''<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
                             <ribbon startFromScratch="false">
