@@ -26,8 +26,9 @@ docCleaner.py
  -i "input file"   
  -o "output file"   
  -t "xslt file"  
- -s "subfile to process, contained in the inputfile" (optional)  
-
+ -s "subfile(s) to process, contained in the inputfile" (optional)  
+ -p "parameter(s) to pass to the XSL stylesheet (optional)"
+ 
 ###Examples:
  To apply the XSL to document.xml, footnotes.xml, endnotes.xml (all contained in the "MyDocToProcess.docx" document):
 
@@ -36,5 +37,9 @@ docCleaner.py
 To apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document:
  
     python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "word/endnotes.xml"
+    
+To apply parameters to the XSL stylesheet, e.g. $foo=True, $foo2="blue", and $foo3=24 :
+
+    python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -p "foo=True,foo2='blue',foo3=24"
  
 
