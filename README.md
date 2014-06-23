@@ -10,7 +10,11 @@ This is often a more efficient and reliable method than using VBA or OOBASIC mac
 Moreover, it is independant from the OS and the word processor you use.
 
 ###A word of caution
-For the moment, for security reasons, it should not be used with untrusted documents as input (defusedxml implementation still pending).
+About **XML files as input** ("-i" argument): defusedxml implementation still pending. Not sure if untrusted documents should be allowed as input via the "-i" argument.
+
+About **XSL files as input** ("-t" argument): If you want to use this script on a public server open to everyone, you should forbid the use of untrusted XSL file as input, and may use a whitelist for such files.
+
+In a nutshell: if you use this script with documents you trust, on your personal computer -> no security issue. If you plan to use it as a public service available on a server, you should add a security layer for preventing malicious inputs.
 
 ##SHORT DOCUMENTATION
 
