@@ -189,11 +189,6 @@ def main(argv):
         
     #For each file listed in the "lines" list    
     for line in lines:
-        #TODO : each line in the .path file contains a string representing a path, with a "/" path separator.
-        #This separator is only valid in Windows, so we will need to replace any "/" found in the "line" var, with the OS path separator (os.sep).
-        #Otherwise, the script won't be usable on Mac or Linux.
-           
-        #DEBUG
         #check if each listed file exists...     
         try:
             #Retrieving the document
