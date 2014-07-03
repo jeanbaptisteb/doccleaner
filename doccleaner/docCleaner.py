@@ -17,7 +17,7 @@ import shutil
 import zipfile
 #from lxml import etree
 from defusedxml import lxml
-
+#import lxml
 import os
 import sys, getopt
 import gettext
@@ -92,8 +92,10 @@ def checkIfFileExists(fileToCheck):
     except IOError:
         print  ("%s does not exist!") % fileToCheck
         return False
+#MAIN---------------------------------------------------------------------------
 
 def main(argv):
+
     try:                                
         opts, args = getopt.getopt(argv, "i:o:t:s:p:", ["input=", "output=", "transform=", "subfile=", "XSLparameter="])
         
@@ -107,19 +109,15 @@ def main(argv):
     subFile = None
     XSLparameter = None
     for opt, arg in opts:
-        #input file
         if opt in ("-i", "--input"): 
             inputFile = arg   
-        #output file
         elif opt in ("-o", "--output"):
             outputFile = arg
-        #XSL transformation sheet
         elif opt in ("-t", "--transform"):
+            #Will have to forbid the use of a path to a xsl
             transformFile = arg
-        #optional : relative path of the XML files to process in the zipped doc
         elif opt in ("-s", "--subfile"):
             subFile = arg
-        #optional : parameters to pass to the XSL sheet (to pass the argument "$foo='true'" et "$foo2='yes'", use --parameter "foo='true',foo2='yes'")
         elif opt in ("-p", "--XSLparameter"):
             XSLparameter = arg
     
@@ -133,6 +131,7 @@ def main(argv):
     if checkIfFileExists(inputFile) == False:
         sys.exit(2)
 
+
     #Retrieving the file extension, to know which kind of document we are processing
     inputFile_Name, inputFile_Extension = os.path.splitext(inputFile)
     fileType = inputFile_Extension[1:]
@@ -140,14 +139,35 @@ def main(argv):
     #Retrieving the path of the script's folder
     script_directory = os.path.dirname(os.path.realpath(__file__)) #Will have to replace __file__ by sys.argv[0]) when freezing with py2exe
 
+    #Retrieving the path containing xsl files for the current format
+    #(for instance, for docx processing, xls are in the ./docx/ subdirectory)
+   
+    xslFilesPath = os.path.join(script_directory, fileType)  
+    print "1 : " + xslFilesPath
+    xslFilePath = os.path.join(xslFilesPath, transformFile)
+    print "2 : " + xslFilePath
+    #Check if the path to the xsl file is an authorized path
+    if checkIfFileExists(xslFilePath) == True:
+        transformFile = xslFilePath
+    else:
+        print _("The XSL %s does not exist!") % transformFile
+        print _("The following XSL are available :")
+        for xslfile in os.listdir(xslFilesPath):
+            if xslfile.endswith(".xsl"):
+                print "- " + xslfile
+        sys.exit(2)
+
+    
     #Function to make a xsl transformation with the xsl defined in command line
-    #WARNING: If you want to use this script on a public server open to everyone, you should forbid the use of untrusted XSL file as input, and may use a whitelist of such files.
     transform = lxml._etree.XSLT(lxml._etree.parse(transformFile))
 
+
+    
     #To retrieve the data file listing the path of the zip subfiles
     pathfile = os.path.join(script_directory,
                             fileType, 
                             fileType + '.path')
+    
     
     #Creating a copy of the sourceFile
     createDocument(inputFile, outputFile)
@@ -161,6 +181,9 @@ def main(argv):
         f.extract(name, folder)
     f.close()    
     
+    #declaring a "lines" list, which is intended to contain a list of original doc subfiles 
+    #lines = ['']
+    
     #Check if a parameter has been passed for the xsl
     if XSLparameter != None:
         
@@ -170,6 +193,7 @@ def main(argv):
         #Example : i want to use simulteanously a "foo" and "foo2" parameters, and then make a second XSL processing with "foo3" and "foo4" parameters :
             #--XSLparameter foo1='my value 1',foo2='my value 2';foo3='my value 3', foo4='my value 4'
         XSLparameter = XSLparameter.split(",") 
+
 
     else:        
         XSLparameter = None
@@ -189,6 +213,11 @@ def main(argv):
         
     #For each file listed in the "lines" list    
     for line in lines:
+        #TODO : each line in the .path file contains a string representing a path, with a "/" path separator.
+        #This separator is only valid in Windows, so we will need to replace any "/" found in the "line" var, with the OS path separator (os.sep).
+        #Otherwise, the script won't be usable on Mac or Linux.
+           
+        #DEBUG
         #check if each listed file exists...     
         try:
             #Retrieving the document
@@ -213,12 +242,15 @@ def main(argv):
                 #Pass all the parameters simulteanously
                 document = transform(document, **paramDict)#, **paramDict)#, paramDict)
 
+
             elif XSLparameter == "":
                 #Empty parameter, don't pass it
                 document = transform(document)
             else:
                 #Any other case (e.g. no parameter), don't pass it
                 document = transform(document)
+
+           
 
             #Extract it to the temp "files" folder
             #print os.path.join("files", line)
@@ -247,5 +279,8 @@ def main(argv):
     except:
         pass
 if __name__ == '__main__':
+    
+
     init_localization()
     main(sys.argv[1:])
+

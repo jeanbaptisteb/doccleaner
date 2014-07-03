@@ -11,6 +11,8 @@
 
 #Inspired by the Excel addin provided in the win32com module demos, and the "JJ Word Addin" (I don't remember where I get it, but thanks!)
 
+import win32com
+win32com.__path__
 from win32com import universal
 from win32com.server.exception import COMException
 from win32com.client import gencache, DispatchWithEvents
@@ -26,10 +28,13 @@ import win32con
 import locale
 import gettext
 import ConfigParser
-import localization
+import docCleaner.localization
 import tempfile
 import shutil
+import mimetypes
 
+#win32com.client.gencache.is_readonly=False
+#win32com.client.gencache.GetGeneratePath()
 # Support for COM objects we use.
 gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 1, bForDemand=True) # Office 9
 gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, bForDemand=True)
@@ -38,8 +43,13 @@ gencache.EnsureModule('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, bForDem
 universal.RegisterInterfaces('{AC0714F2-3D04-11D1-AE7D-00A0C90F26F4}', 0, 1, 0, ["_IDTExtensibility2"])
 universal.RegisterInterfaces('{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}', 0, 2, 5, ["IRibbonExtensibility", "IRibbonControl"])
 
-
-#TODO : localization
+def checkIfDocx(filepath):
+    if mimetypes.guess_type(filepath)[0] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        return True
+    else:
+        return False
+        
+#TODO : localization             
 def init_localization():
     '''prepare l10n'''
     print locale.setlocale(locale.LC_ALL,"")
@@ -61,11 +71,10 @@ def init_localization():
 
     trans.install()
 class WordAddin:
-    
     config = ConfigParser.ConfigParser()
     
     _com_interfaces_ = ['_IDTExtensibility2', 'IRibbonExtensibility']
-    _public_methods_ = ['do','GetImage']
+    _public_methods_ = ['clean', 'do','GetImage']
     _reg_clsctx_ = pythoncom.CLSCTX_INPROC_SERVER
     _reg_clsid_ = "{C5482ECA-F559-45A0-B078-B2036E6F011A}"
     _reg_progid_ = "Python.DocCleaner.WordAddin"
@@ -78,20 +87,34 @@ class WordAddin:
     def do(self,ctrl):
     #This is the core of the Word addin : manipulates docs and calls docCleaner
     #The ctrl argument is a callback for the button the user made an action on (e.g. clicking on it)
-
+        
+            
         #Creating a word object inside a wd variable
         wd = win32com.client.Dispatch("Word.Application")
+        
 
         try:
             #Check if the file is not a new one (unsaved)
             if os.path.isfile(wd.ActiveDocument.FullName) == True:
                 #Before processing the doc, let's save the user's last modifications
-                wd.ActiveDocument.Save      
                 
+                wd.ActiveDocument.Save                   
+                    
+
+                    
+                    
                 originDoc = wd.ActiveDocument.FullName #:Puts the path of the current file in a variable
                 tmp_dir = tempfile.mkdtemp() #:Creates a temp folder, which will contain the temp docx files necessary for processing        
+                
+                #TODO: If the document is in another format than docx, convert it temporarily to docx
+                #At the processing's end, we'll have to convert it back to its original format, so we need to store this information
+                if checkIfDocx(wd.ActiveDocument.FullName) == False:     
+                    originDocFormat = wd.SaveFormat                           
+                    
+                
                 transitionalDoc = originDoc #:Creates a temp transitional doc, which will be used if we need to make consecutive XSLT processings. #E.g..: original doc -> xslt processing -> transitional doc -> xslt processing -> final doc -> copying to original doc                
                 newDoc = os.path.join(tmp_dir, "~" + wd.ActiveDocument.Name) #:Creates a temporary file (newDoc), which will be the docCleaner output
+                
                 
                 jj = 0 #:This variable will be increased by one for each XSL parameter defined in the wordAddin_xx.ini file (separated by a semi-colon ;). Used for handling temp docx filenames, and for subfiles consecutive processing (vs. simulteanous processing, which is already handled in the docCleaner script)
                 
@@ -131,7 +154,7 @@ class WordAddin:
                                          
                         docCleaner.main(['--input', str(transitionalDoc), 
                                      '--output', str(newDoc), 
-                                     '--transform', os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                     '--transform', os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])),
                                                                  "docx", str(ctrl. Tag) + ".xsl"),
                                     '--subfile', subFileArg,
                                      '--XSLparameter', XSLparameter
@@ -187,9 +210,9 @@ class WordAddin:
         return i
 
     def GetCustomUI(self,control):
-        #TODO :  Getting the button variables from the localized ini file
-        
-        self.config.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'wordAddin_fr.ini'))
+        #Getting the button variables from the localized ini file
+        #TODO : 
+        self.config.read(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), 'wordAddin_fr.ini'))
         #Constructing the Word ribbon XML                                          
         ribbonHeader = '''<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
                             <ribbon startFromScratch="false">
@@ -210,7 +233,7 @@ class WordAddin:
         buttonsNumber = 0
 
         #Generating dynamically the buttons of the ribbon, according to the available XSL sheets for the docx format
-        for path, subdirs, files in os.walk(os.path.join(os.path.dirname(os.path.realpath(__file__)), "docx")):      
+        for path, subdirs, files in os.walk(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "docx")):      
             for filename in files:       
                 if filename.endswith(".xsl"):      
                     buttonsNumber += 1
@@ -268,6 +291,11 @@ def RegisterAddin(klass):
     _winreg.SetValueEx(subkey, "LoadBehavior", 0, _winreg.REG_DWORD, 3)
     _winreg.SetValueEx(subkey, "Description", 0, _winreg.REG_SZ, "DocCleaner Word Addin")
     _winreg.SetValueEx(subkey, "FriendlyName", 0, _winreg.REG_SZ, "DocCleaner Word Addin")
+    
+    word = gencache.EnsureDispatch("Word.Application")
+    mod = sys.modules[word.__module__]
+    print "The module hosting the object is", mod
+
 
 def UnregisterAddin(klass):
     import _winreg
@@ -275,8 +303,7 @@ def UnregisterAddin(klass):
         _winreg.DeleteKey(_winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Office\\Word\\Addins\\" + klass._reg_progid_)
     except WindowsError:
         pass
-
-if __name__ == '__main__':
+def main():
     init_localization()
     
     import win32com.server.register
@@ -285,3 +312,5 @@ if __name__ == '__main__':
         UnregisterAddin( WordAddin )
     else:
         RegisterAddin( WordAddin )
+if __name__ == '__main__':
+    main()

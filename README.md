@@ -10,11 +10,7 @@ This is often a more efficient and reliable method than using VBA or OOBASIC mac
 Moreover, it is independant from the OS and the word processor you use.
 
 ###A word of caution
-About **XML files as input** ("-i" argument): defusedxml implementation still pending. Not sure if untrusted documents should be allowed as input via the "-i" argument.
-
-About **XSL files as input** ("-t" argument): If you want to use this script on a public server open to everyone, you should forbid the use of untrusted XSL file as input, and may use a whitelist for such files.
-
-In a nutshell: if you use this script with documents you trust, on your personal computer -> no security issue. If you plan to use it as a public service available on a server, you should add a security layer for preventing malicious inputs.
+For the moment, for security reasons, it should not be used with untrusted documents as input (defusedxml implementation still pending).
 
 ##SHORT DOCUMENTATION
 
@@ -30,9 +26,8 @@ docCleaner.py
  -i "input file"   
  -o "output file"   
  -t "xslt file"  
- -s "subfile(s) to process, contained in the inputfile" (optional)  
- -p "parameter(s) to pass to the XSL stylesheet (optional)"
- 
+ -s "subfile to process, contained in the inputfile" (optional)  
+
 ###Examples:
  To apply the XSL to document.xml, footnotes.xml, endnotes.xml (all contained in the "MyDocToProcess.docx" document):
 
@@ -41,9 +36,5 @@ docCleaner.py
 To apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document:
  
     python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "word/endnotes.xml"
-    
-To apply parameters to the XSL stylesheet, e.g. $foo=True, $foo2="blue", and $foo3=24 :
-
-    python docCleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -p "foo=True,foo2='blue',foo3=24"
  
 
