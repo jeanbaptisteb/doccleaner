@@ -1,4 +1,4 @@
-DocCleaner
+DocCleaner 0.1.0
 ==========
 
 
