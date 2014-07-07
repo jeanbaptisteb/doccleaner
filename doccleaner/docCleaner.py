@@ -2,7 +2,7 @@
 
 
 #-------------------------------------------------------------------------------
-# Name: DocCleaner.py
+# Name: doccleaner.py
 # Purpose: Opens zip documents (docx, odt), apply an xslt to the xml they contain, and saves
 #
 # Author: Jean-Baptiste Bertrand

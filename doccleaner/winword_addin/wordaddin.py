@@ -10,6 +10,9 @@
 #You can also remove it from Word (in the "Developer" tab, look for COM Addins > Remove)
 
 #Inspired by the Excel addin provided in the win32com module demos, and the "JJ Word Addin" (I don't remember where I get it, but thanks!)
+#!python2.7.8
+import sys
+sys.path.insert(0, 'pkgs')
 
 import win32com
 win32com.__path__
@@ -21,14 +24,14 @@ import pythoncom
 from win32com.client import constants, Dispatch
 import sys
 import win32com.client
-import docCleaner
+import doccleaner
 import os
 import win32ui
 import win32con
 import locale
 import gettext
 import ConfigParser
-import docCleaner.localization
+import doccleaner.localization
 import tempfile
 import shutil
 import mimetypes
@@ -108,8 +111,7 @@ class WordAddin:
                 
                 #TODO: If the document is in another format than docx, convert it temporarily to docx
                 #At the processing's end, we'll have to convert it back to its original format, so we need to store this information
-                if checkIfDocx(wd.ActiveDocument.FullName) == False:     
-                    originDocFormat = wd.SaveFormat                           
+                  
                     
                 
                 transitionalDoc = originDoc #:Creates a temp transitional doc, which will be used if we need to make consecutive XSLT processings. #E.g..: original doc -> xslt processing -> transitional doc -> xslt processing -> final doc -> copying to original doc                
@@ -152,7 +154,7 @@ class WordAddin:
                             newDoc =  newDocName + str(jj)+ newDocExtension 
                  
                                          
-                        docCleaner.main(['--input', str(transitionalDoc), 
+                        doccleaner.main(['--input', str(transitionalDoc), 
                                      '--output', str(newDoc), 
                                      '--transform', os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])),
                                                                  "docx", str(ctrl. Tag) + ".xsl"),
@@ -233,7 +235,7 @@ class WordAddin:
         buttonsNumber = 0
 
         #Generating dynamically the buttons of the ribbon, according to the available XSL sheets for the docx format
-        for path, subdirs, files in os.walk(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "docx")):      
+        for path, subdirs, files in os.walk(os.path.join('..', 'docx')):#os.walk(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "docx")):      
             for filename in files:       
                 if filename.endswith(".xsl"):      
                     buttonsNumber += 1
