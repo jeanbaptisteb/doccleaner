@@ -1,8 +1,8 @@
-DocCleaner 0.1.0
+DocCleaner 0.1.2
 ==========
 
 
-A python utility to edit zipped, XML-based files (for instance, docx or odt files). It can be rather easily extended with xsl stylesheets.
+A python command-line utility which uses XSLT 1.0 to edit zipped, XML-based files (for instance, docx or odt files). It can be rather easily extended with xsl stylesheets.
 
 It is primarely intended for automating some copyediting tasks (removing local formatting, correcting non-breaking spaces according to the language's typography rules, checking the use of smart quotes, etc.). 
 

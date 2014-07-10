@@ -1,21 +1,17 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(name='doccleaner',
-      version='0.1.1',
+      version='0.1.2',
       description='A python command-line utility to edit zipped, XML-based files (e.g. docx, odt, or epub). Can be rather easily extended with xsl stylesheets. Intended for automating some copyediting tasks',
-      url='https://github.com/jbber/DocCleaner',
-      download_url='https://github.com/jbber/DocCleaner/tarball/0.1',
+      url='',
+      download_url='',
       author='Jean-Baptiste Bertrand',
       author_email='jean-baptiste.bertrand@openedition.org',
-      license='LICENSE',
+      license='LGPL 3.0',
 	  include_package_data=True,
-      packages=['doccleaner'],
+      packages=find_packages(),
       install_requires=['defusedxml'],	
-      package_data = {
-      'doccleaner': ['docx/*.*', 'lang/*.*'],
-      },
-      keywords = ['xsl', 'docx'],
       zip_safe=False)
       
 
