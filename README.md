@@ -1,4 +1,4 @@
-DocCleaner 0.1.2
+DocCleaner 0.2
 ==========
 
 
