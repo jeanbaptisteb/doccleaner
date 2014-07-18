@@ -10,7 +10,7 @@ import os
 
 def init_localization():
     '''prepare l10n'''
-    print locale.setlocale(locale.LC_ALL,"")
+    print(locale.setlocale(locale.LC_ALL,""))
     locale.setlocale(locale.LC_ALL, '') # use user's preferred locale
 
     # take first two characters of country code
@@ -19,12 +19,12 @@ def init_localization():
     #filename = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "lang", "messages_%s.mo" % locale.getlocale()[0][0:2])
     filename = os.path.join("lang", "messages_{0}.mo").format(locale.getlocale()[0][0:2])
     try:
-        print "Opening message file {0} for locale {1}".format(filename, loc[0])
+        print("Opening message file {0} for locale {1}".format(filename, loc[0]))
         #If the .mo file is badly generated, this line will return an error message: "LookupError: unknown encoding: CHARSET"
         trans = gettext.GNUTranslations(open(filename, "rb"))
 
     except IOError:
-        print "Locale not found. Using default messages"
+        print("Locale not found. Using default messages")
         trans = gettext.NullTranslations()
 
     trans.install()
@@ -73,8 +73,8 @@ def main():
                 
         f.write(addin.WordIniGen())
         
-    except Exception, e:
-        print str(e)
+    except Exception as e:
+        print(str(e))
     
 
 if __name__ == '__main__':
