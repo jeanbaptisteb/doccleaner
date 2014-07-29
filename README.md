@@ -9,12 +9,10 @@ It is primarely intended for automating some copyediting tasks (removing local f
 This is often a more efficient and reliable method than using VBA or OOBASIC macros, particularly on large documents.
 Moreover, it is independant from the OS and the word processor you use.
 
-###A word of caution
-About **XML files as input** ("-i" argument): defusedxml implementation still pending. Untrusted documents should not be allowed as input via the "-i" argument. If you want to allow untrusted documents as input, you should add a layer a security before processing them with doccleaner.
+Plugins for text processing softwares (Microsoft Word, LibreOffice) are developped at  **https://github.com/jbber/doccleaner-plugins**. 
 
-About **XSL files as input** ("-t" argument): If you want to use this script on a public server open to everyone, you should forbid the use of untrusted XSL file as input, and may use a whitelist for such files.
+Pull requests welcomed!
 
-In a nutshell: if you use this script with documents you trust, on your personal computer -> no security issue. If you plan to use it as a public service available on a server, you should add a security layer for preventing malicious inputs.
 
 ##SHORT DOCUMENTATION
 Compatible with Python 2.7 and 3.4.
@@ -94,3 +92,9 @@ doccleaner.doccleaner.main(['--input', str(inputDoc),
                  '--XSLparameter', str(params)
                  ])
 ```
+###A word of caution about server side processings
+About **XML files as input** ("-i" argument): defusedxml implementation still pending. Untrusted documents should not be allowed as input via the "-i" argument. If you want to allow untrusted documents as input, you should add a layer a security before processing them with doccleaner.
+
+About **XSL files as input** ("-t" argument): If you want to use this script on a public server open to everyone, you should forbid the use of untrusted XSL file as input, and may use a whitelist for such files.
+
+In a nutshell: if you use this script with documents you trust, on your personal computer -> no security issue. If you plan to use it as a public service available on a server, you should add a security layer for preventing malicious inputs.
