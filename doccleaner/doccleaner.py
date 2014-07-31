@@ -66,6 +66,7 @@ def saveElement(fileName, element):
 
 
 def usage():
+    #TODO: updating this part, new parameters are available
     print("Some arguments are missing!")
     print("Usage :")
     print(" -i <inputFile.docx>")
@@ -96,7 +97,7 @@ def checkIfFileExists(fileToCheck):
 def main(argv):
 
     try:
-        opts, args = getopt.getopt(argv, "i:o:t:s:p:", ["input=", "output=", "transform=", "subfile=", "XSLparameter="])
+        opts, args = getopt.getopt(argv, "i:o:t:s:p:g", ["input=", "output=", "transform=", "subfile=", "XSLparameter=", "get_tempdir"])
 
     except:# getopt.GetoptError:
         usage()
@@ -107,6 +108,10 @@ def main(argv):
     transformFile = None
     subFile = None
     XSLparameter = None
+    tempdir = None    
+    #Creating a temp folder
+    folder = tempfile.mkdtemp()
+    print(folder + "created")
     for opt, arg in opts:
         if opt in ("-i", "--input"):
             inputFile = arg
@@ -119,7 +124,17 @@ def main(argv):
             subFile = arg
         elif opt in ("-p", "--XSLparameter"):
             XSLparameter = arg
+        elif opt in ("-g", "--get_tempdir"):
+            tempdir = "=".join([ "tempdir", "\"{0}\"".format(str(folder)) ])
 
+    #If "-g" or "--get_tempdir" is used, append tempdir="path/to/temporary folder" to the XSLparameter string
+    #It will pass the absolute path of the temporary folder to the XSL sheet, in a $tempdir parameter
+    if tempdir != None and XSLparameter != None:
+        XSLparameter = ",".join([ XSLparameter, tempdir ])
+    elif tempdir != None and XSLparameter == None:
+        XSLparameter = tempdir
+        
+    #If no input file, output file, nor XSL sheet have been defined, we need to exit the code
     if inputFile == None:
         sys.exit(2)
     elif outputFile == None:
@@ -129,7 +144,6 @@ def main(argv):
 
     if checkIfFileExists(inputFile) == False:
         sys.exit(2)
-
 
     #Retrieving the file extension, to know which kind of document we are processing
     inputFile_Name, inputFile_Extension = os.path.splitext(inputFile)
@@ -142,9 +156,7 @@ def main(argv):
     #(for instance, for docx processing, xls are in the ./docx/ subdirectory)
 
     xslFilesPath = os.path.join(script_directory, fileType)
-    print("1 : " + xslFilesPath)
     xslFilePath = os.path.join(xslFilesPath, transformFile)
-    print("2 : " + xslFilePath)
     #Check if the path to the xsl file is an authorized path
     if checkIfFileExists(xslFilePath) == True:
         transformFile = xslFilePath
@@ -170,9 +182,6 @@ def main(argv):
 
     #Creating a copy of the sourceFile
     createDocument(inputFile, outputFile)
-
-    #Creating a temp folder
-    folder = tempfile.mkdtemp()
 
     #Fill the folder with all files zipped in the input file
     f = zipfile.ZipFile(outputFile, mode='r', compression=zipfile.ZIP_DEFLATED)
