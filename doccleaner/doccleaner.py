@@ -255,14 +255,13 @@ def main(argv):
             z.write(os.path.join(root, f))
     os.chdir("..")
     z.close()
+    
     #Deleting the temp folder
-    '''
     try:
         shutil.rmtree(folder)
         print(folder + " deleted")
     except:
         pass
-    '''
 if __name__ == '__main__':
     init_localization()
     main(sys.argv[1:])
