@@ -55,21 +55,10 @@ def createDocument(sourceFile, destFile):
 
 def openDocument(fileName, subFileName, parser):
     #opens zip file and getting the subfile (for instance, in a docx, word/document.xml)
-
     mydoc = zipfile.ZipFile(fileName)
     xmlcontent = mydoc.read(subFileName)
     document = lxml._etree.fromstring(xmlcontent, parser)
     return document
-
-'''
-def openDocument(self, fileName, subFileName):
-    #opens zip file and getting the subfile (for instance, in a docx, word/document.xml)
-    mydoc = zipfile.ZipFile(fileName)
-    xmlcontent = mydoc.read(subFileName)
-    document = lxml._etree.fromstring(xmlcontent, self.parser)
-    return document
-'''
-
 
 def saveElement(fileName, element):
     #Save a .xml element
@@ -154,8 +143,7 @@ def main(argv):
     parser.resolvers.add(FileResolver())
 
     #Function to make a xsl transformation with the xsl defined in command line
-    transform = lxml._etree.XSLT(lxml._etree.parse(open(transformFile, "r"), parser))
-    
+    transform = lxml._etree.XSLT(lxml._etree.parse(open(transformFile, "r", encoding="utf8"), parser))
     
     #To retrieve the data file listing the path of the zip subfiles
     inputFile_Name, inputFile_Extension = os.path.splitext(inputFile)
