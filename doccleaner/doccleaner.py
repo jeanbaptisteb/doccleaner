@@ -23,11 +23,18 @@ import sys, getopt
 import gettext
 import locale
 import tempfile
+import simplejson
 
 class FileResolver(lxml._etree.Resolver):
     def resolve(self, url, pubid, context):
         return self.resolve_filename(url, context)
-
+        
+def load_json(filename):
+    f = open(filename, "r")
+    data = f.read()
+    f.close()
+    return simplejson.loads(data)
+    
 def init_localization():
     '''prepare l10n'''
     #print locale.setlocale(locale.LC_ALL,"")
@@ -150,9 +157,12 @@ def main(argv):
     fileType = inputFile_Extension[1:]
     script_directory = os.path.dirname(os.path.realpath(__file__))
     
-    pathfile = os.path.join(script_directory,
+    if subFile == None:
+        subFile = os.path.join(script_directory,
                             fileType,
-                            fileType + '.path')
+                            fileType + '.json')
+    
+    subFileConf = load_json(subFile)
 
     #Creating a copy of the sourceFile
     createDocument(inputFile, outputFile)
@@ -175,30 +185,15 @@ def main(argv):
     else:
         XSLparameter = None
 
-    #Check if a subFile has been passed as an argument (-s "subfile name")
-    if subFile == None:
-        #If no subFile has been passed as an argument, retrieving the list of subfiles from the .path file
-        lines = [line.strip() for line in open(pathfile)]
-    elif subFile == "":
-        lines = [line.strip() for line in open(pathfile)]
-    else:
-    #If a subfile has been passed as an argument, process it exclusively
-        #The argument can contain a list of files, separated by a comma
-        lines = [line.strip() for line in subFile.split(",")]
-
-    #For each file listed in the "lines" list
-    for line in lines:
-        #TODO : each line in the .path file contains a string representing a path, with a "/" path separator.
-        #This separator is only valid in Windows, so we will need to replace any "/" found in the "line" var, with the OS path separator (os.sep).
-        #Otherwise, the script won't be usable on Mac or Linux.
+    #For each input file listed in the json file
+    subfileNumber = 0
+    for subfile_input in subFileConf["subfile_input"]:
 
         #check if each listed file exists...
         try:
             #Retrieving the document
-            document = openDocument(inputFile, line, parser)
-
+            document = openDocument(inputFile, subFileConf["subfile_input"][subfileNumber], parser)
             #Process it with the xsl file defined as transformFile (with the -t commandline)
-
             #If some parameters have been passed, they are in a list "XSLparameter"
 
             if XSLparameter != None:
@@ -226,11 +221,11 @@ def main(argv):
 
             #Extract it to the temp "files" folder
             #print os.path.join("files", line)
-            saveElement(os.path.join(folder, line), document)
+            saveElement(os.path.join(folder, subFileConf["subfile_input"][subfileNumber]), document)
+            subfileNumber += 1
         #if file doesn't exist, do not try to process it
         except Exception as e:
-            print(("line %s does not exist!") % line)
-            print(e)
+            print("Error : " + str(e))
             pass
     #Unzip the outputFIle
     z= zipfile.ZipFile(outputFile, mode='w', compression=zipfile.ZIP_DEFLATED)

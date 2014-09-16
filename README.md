@@ -30,7 +30,7 @@ doccleaner.py
  -i "input file"  
  -o "output file"  
  -t "xslt file"  
- -s "subfile(s) to process, contained in the inputfile" (optional)  
+ -s "path to a json configuration file defining which subfile(s) to process" (optional)  
  -p "parameter(s) to pass to the XSL stylesheet" (optional) 
  
 **Alternative syntax**  
@@ -38,22 +38,62 @@ doccleaner.py
  --input "input file"  
  --output "output file"  
  --transform "xslt file"  
- --subfile "subfile(s) to process" (optional)  
+ --subfile "path to a json configuration file defining which subfile(s) to process" (optional)  
  --XSLparameter "parameter(s) to pass" (optional) 
+
+#### Json conf file specifications
+When using the "subfile" parameter, you need to define a Json configuration file, containing a list of input subfiles from which you want to retrieve contents, and a list of output subfiles where to put the result of the XSL transformation. For an example, see the docx.json file in the docx folder, or the examples below.
  
 ###Examples
 ####From command line
  To apply the XSL to document.xml, footnotes.xml, endnotes.xml (all contained in the "MyDocToProcess.docx" document):
 
     python doccleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl"
- 
-To apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document:
- 
-    python doccleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "word/endnotes.xml"
-    
+
 To apply parameters to the XSL stylesheet, e.g. $foo=True, $foo2="blue", and $foo3=24 :
 
     python doccleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -p "foo=True,foo2='blue',foo3=24"
+	
+To apply the XSL only to endnotes.xml, that is to say it will process only the endnotes of the docx document:
+
+    python doccleaner.py  -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "path/to/confFile.json"
+	
+with the following Json conf file :
+```
+{ 
+
+    "subfile_input" : ["word/endnotes.xml"], 
+    "subfile_output": ["word/endnotes.xml"]
+   
+}
+```
+
+To get the contents of document.xml, and then output the result of the XSL processing to a comments.xml subfile :
+
+    python doccleaner.py -i "c:\MyDocToProcess.docx" -o "c:\dest\ProcessedDoc.docx" -t "c:\MyTransformationFile.xsl" -s "path/to/confFile.json"
+
+with the following Json conf file :
+```
+{ 
+
+    "subfile_input" : ["word/document.xml"], 
+    "subfile_output": ["word/comments.xml"]
+   
+}
+```
+
+If you need to process several subfiles, the Json may look like this : 
+```
+{ 
+
+    "subfile_input" : ["word/document.xml", "word/footnotes.xml"], 
+    "subfile_output": ["word/comments.xml", "word/footnotes.xml"]
+   
+}
+```
+The example above will output the result of the XSL transformation :
+* from word/document.xml to word/comments.xml
+* from word/footnotes.xml to word/footnotes.xml
     
 ####From a script
 #####Python 2 or 3
@@ -64,13 +104,13 @@ from doccleaner import doccleaner
 inputDoc = 'c:\\MyDocToProcess.docx'
 outputDoc = 'c:\\dest\\ProcessedDoc.docx'
 xslDoc = 'c:\\MyTransformationFile.xsl'
-subFiles = 'word/endnotes.xml'
+subFiles = "path/to/conf.json"
 params = "foo=True,foo2='blue',foo3=24"
 
 doccleaner.main(['--input', str(inputDoc),
                  '--output', str(outputDoc),
                  '--transform', str(xslDoc),
-                 '--subfile', str(subFiles),
+                 '--subfile', "path/to/conf.json",
                  '--XSLparameter', str(params)
                  ])
 ```
@@ -82,13 +122,13 @@ import doccleaner #won't work with Python 3
 inputDoc = 'c:\\MyDocToProcess.docx'
 outputDoc = 'c:\\dest\\ProcessedDoc.docx'
 xslDoc = 'c:\\MyTransformationFile.xsl'
-subFiles = 'word/endnotes.xml'
+subFiles = 'path/to/conf.json'
 params = "foo=True,foo2='blue',foo3=24"
 
 doccleaner.doccleaner.main(['--input', str(inputDoc),
                  '--output', str(outputDoc),
                  '--transform', str(xslDoc),
-                 '--subfile', str(subFiles),
+                 '--subfile', "path/to/conf.json",
                  '--XSLparameter', str(params)
                  ])
 ```
