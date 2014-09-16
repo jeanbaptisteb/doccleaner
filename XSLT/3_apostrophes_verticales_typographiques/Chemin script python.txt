@@ -1,0 +1,10 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\3_apostrophes_verticales_typographiques\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\3_apostrophes_verticales_typographiques\OUTPUT\Tous_les_styles_OUTPUT.docx" -t "C:\Users\r.boistel\Documents\Macros_word\3_apostrophes_verticales_typographiques\XSL\apostrophe_document.xsl" -s "word/document.xml"
+
+
+

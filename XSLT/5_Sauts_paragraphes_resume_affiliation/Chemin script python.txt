@@ -1,0 +1,10 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\5_Sauts_paragraphes_resume_affiliation\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\5_Sauts_paragraphes_resume_affiliation\OUTPUT\Tous_les_styles_OUTPUT.docx" -t "C:\Users\r.boistel\Documents\Macros_word\5_Sauts_paragraphes_resume_affiliation\XSL\sauts_paragraphes_resumes_affiliations.xsl" -s "word/document.xml"
+
+
+
