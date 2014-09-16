@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:comments xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:w10="urn:schemas-microsoft-com:office:word"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml">
+    <w:comment w:id="0" w:author="r.boistel" w:date="2014-09-08T14:00:00Z" w:initials="r">
+        <w:p w:rsidR="00084124" w:rsidRDefault="00084124">
+            <w:pPr>
+                <w:pStyle w:val="Commentaire"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Marquedecommentaire"/>
+                </w:rPr>
+                <w:annotationRef/>
+            </w:r>
+            <w:r w:rsidR="005D427B">
+                <w:t>Commentaire sur le paragraphe pour voir à quoi ça ressemble dans le code.</w:t>
+            </w:r>
+        </w:p>
+    </w:comment>
+    <w:comment w:id="55" w:author="r.boistel" w:date="2014-09-09T11:08:00Z" w:initials="r">
+        <w:p w:rsidR="00753593" w:rsidRDefault="00753593">
+            <w:pPr>
+                <w:pStyle w:val="Commentaire"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Marquedecommentaire"/>
+                </w:rPr>
+                <w:annotationRef/>
+            </w:r>
+            <w:r>
+                <w:t>Deuxième commentaire sur paragraphe.</w:t>
+            </w:r>
+        </w:p>
+    </w:comment>
+    <w:comment w:id="2" w:author="r.boistel" w:date="2014-09-09T10:41:00Z" w:initials="r">
+        <w:p w:rsidR="00441DC2" w:rsidRDefault="00441DC2">
+            <w:pPr>
+                <w:pStyle w:val="Commentaire"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Marquedecommentaire"/>
+                </w:rPr>
+                <w:annotationRef/>
+            </w:r>
+            <w:r>
+                <w:t>Commentaire sur titre.</w:t>
+            </w:r>
+        </w:p>
+    </w:comment>
+</w:comments>

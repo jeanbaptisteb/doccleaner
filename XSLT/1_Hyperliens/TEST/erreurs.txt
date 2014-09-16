@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "doccleaner.py", line 249, in <module>
+    main(sys.argv[1:])
+  File "doccleaner.py", line 148, in main
+    pathfile = os.path.join(script_directory,
+NameError: name 'script_directory' is not defined

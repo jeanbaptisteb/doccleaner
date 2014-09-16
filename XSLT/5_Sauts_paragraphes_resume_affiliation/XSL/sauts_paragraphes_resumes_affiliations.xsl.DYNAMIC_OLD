@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:w10="urn:schemas-microsoft-com:office:word"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" version="1.0"
+    
+    xmlns:dyn="http://exslt.org/dynamic"
+    extension-element-prefixes="dyn"
+    >
+
+    <xsl:output indent="no" encoding="UTF-8" version="1.0"/>
+
+
+
+    <xsl:param name="tempdir"/>
+    <xsl:variable name="tempdirSlash" select="translate($tempdir, '\', '/')"/>
+
+
+
+    <xsl:param name="stylenames" select="'Abstract,Resume,DescriptionAuteur'"/>
+
+
+
+    <!-- Copie de tous les attributs -->
+    <xsl:template match="@*">
+        <xsl:copy/>
+    </xsl:template>
+
+
+
+    <!--
+    Copie de tous les noeuds.
+    Sauf les noeuds <w:r> (dont les fils sont <w:t>) qui font partie des paragraphes
+    "description auteur" ou "résumé" qui en suivent immédiatement d'autres.
+    Ceux-là sont traités dans des templates particulières plus bas.
+    -->
+    <xsl:template match="node()" name="basic_copy">
+        <!-- 
+        On construit une expression XPath dynamique en fonction des paramètres de styles
+        passés à la transformation XSLT.
+        Elle ressemble à :
+        
+        self::node()[not(w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='DescriptionAuteur']
+                                          [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'DescriptionAuteur']])]
+                    [not(w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='Resume']
+                                          [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Resume']])]
+                    [not(w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='Abstract']
+                                          [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Abstract']])]
+        -->
+        <xsl:variable name="dynamicXPath">
+            <xsl:call-template name="buildXPath">
+                <xsl:with-param name="builderName" select="'builder_basic_copy'"/>
+            </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:variable name="fullXPath">
+            <xsl:value-of select="concat('self::node()', $dynamicXPath)"/>
+        </xsl:variable>
+        
+        
+        
+        <xsl:choose>
+            <xsl:when test="dyn:evaluate($fullXPath)">
+                <xsl:copy>
+                    <xsl:apply-templates select="node() | @*"/>
+                </xsl:copy>
+            </xsl:when>
+            <xsl:otherwise>
+            </xsl:otherwise>
+        </xsl:choose>
+        
+        <!--
+        <xsl:if test="$fullXPath">
+            <xsl:copy>
+
+                <xsl:apply-templates select="node() | @*"/>
+            </xsl:copy>
+        </xsl:if>
+        -->
+    </xsl:template>
+    
+    
+    
+    
+    
+    
+    <xsl:template match="w:t" name="concat_text_segment">
+        
+        <xsl:variable name="dynamicXPath">
+            <xsl:call-template name="buildXPath">
+                <xsl:with-param name="builderName" select="'builder_concat_text_segment'"/>
+            </xsl:call-template>
+        </xsl:variable>
+        
+        <xsl:variable name="fullXPath">
+            <xsl:value-of select="concat('', $dynamicXPath)"/>
+        </xsl:variable>
+        
+       
+        <xsl:if
+            test="dyn:evaluate($dynamicXPath)">
+            <w:br/>
+        </xsl:if>
+       
+        <!--
+        <xsl:if
+            test="current()[ancestor::w:p[w:pPr/w:pStyle/@w:val='DescriptionAuteur']
+            [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'DescriptionAuteur']]
+            | current()[ancestor::w:p[w:pPr/w:pStyle/@w:val='Resume']
+            [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Resume']]
+            | current()[ancestor::w:p[w:pPr/w:pStyle/@w:val='Abstract']
+            [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Abstract']]">
+            <w:br/>
+        </xsl:if>
+         -->
+        
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    
+    
+    
+    <xsl:template name="builder_concat_text_segment">
+        <xsl:param name="XPath_fragment"/>
+        <xsl:param name="currentstylename"/>
+        <xsl:variable name="apos">'</xsl:variable>
+        
+        <xsl:value-of select="$XPath_fragment"/>
+        <xsl:if test="$XPath_fragment != ''">
+            <xsl:value-of select="' | '"/>
+        </xsl:if>
+        <xsl:value-of
+            select="concat('current()[ancestor::w:p[w:pPr/w:pStyle/@w:val=',
+            $apos, $currentstylename, $apos, ']
+            [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = ', $apos, $currentstylename, $apos, ']]')"
+        />
+    </xsl:template>
+    
+    
+    
+    
+    
+
+
+
+    <xsl:template name="buildXPath">
+        <xsl:param name="stringstyles" select="$stylenames"/>
+        <xsl:param name="XPath_fragment" select="''"/>
+        <xsl:param name="builderName"/>
+
+        <xsl:variable name="currentstylename">
+            <xsl:choose>
+                <xsl:when test="contains($stringstyles, ',')">
+                    <xsl:value-of select="substring-before($stringstyles, ',')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$stringstyles"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>        
+        
+        <xsl:variable name="XPath_builder">
+            <xsl:choose>
+                <xsl:when test="$builderName = 'builder_basic_copy'">
+                    <xsl:call-template name="builder_basic_copy">
+                        <xsl:with-param name="XPath_fragment" select="$XPath_fragment"/>
+                        <xsl:with-param name="currentstylename" select="$currentstylename"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:when test="$builderName = 'builder_concat_text_segment'">
+                    <xsl:call-template name="builder_concat_text_segment">
+                        <xsl:with-param name="XPath_fragment" select="$XPath_fragment"/>
+                        <xsl:with-param name="currentstylename" select="$currentstylename"/>
+                    </xsl:call-template>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="contains($stringstyles, ',')">
+                <xsl:call-template name="buildXPath">
+                    <xsl:with-param name="stringstyles" select="substring-after($stringstyles, ',')"/>
+                    <xsl:with-param name="XPath_fragment" select="$XPath_builder"/>
+                    <xsl:with-param name="builderName" select="$builderName"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$XPath_builder"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    
+    
+    
+    <xsl:template name="builder_basic_copy">
+        <xsl:param name="XPath_fragment"/>
+        <xsl:param name="currentstylename"/>
+        <xsl:variable name="apos">'</xsl:variable>
+        
+        <xsl:value-of select="$XPath_fragment"/>
+        <xsl:value-of
+            select="concat('[not(w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val=',
+            $apos, $currentstylename, $apos, '][preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = ', $apos, $currentstylename, $apos, ']])]')"
+        />
+    </xsl:template>
+    
+    
+    
+    
+
+
+
+
+
+    <!--
+    Sélection du dernier <w:r> des paragraphes de description d'auteurs ou de résumés qui ne
+    doivent eux-mêmes pas être fusionnés.
+    
+    A l'intérieur de ce dernier <w:r>, on copie (2nd apply-templates) le texte des paragraphes
+    suivants qui doivent éventuellement être fusionés.
+    -->
+    <xsl:template
+        match="w:p[w:pPr/w:pStyle/@w:val='DescriptionAuteur']
+        [not(preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'DescriptionAuteur')]//w:r[last()]
+        ">
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*"/>
+
+            <xsl:apply-templates
+                select="ancestor::w:p/following-sibling::w:p[w:pPr/w:pStyle/@w:val = 'DescriptionAuteur']
+                [not(preceding-sibling::w:p[not(w:pPr/w:pStyle/@w:val='DescriptionAuteur')]
+                [preceding-sibling::*[self::* = current()/ancestor::w:p]])
+                ]//w:r/w:t"
+            />
+        </xsl:copy>
+    </xsl:template>
+
+
+
+    <xsl:template
+        match="w:p[w:pPr/w:pStyle/@w:val='Resume']
+        [not(preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Resume')]//w:r[last()]
+        ">
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*"/>
+
+            <xsl:apply-templates
+                select="ancestor::w:p/following-sibling::w:p[w:pPr/w:pStyle/@w:val = 'Resume']
+                [not(preceding-sibling::w:p[not(w:pPr/w:pStyle/@w:val='Resume')]
+                [preceding-sibling::*[self::* = current()/ancestor::w:p]])
+                ]//w:r/w:t"
+            />
+        </xsl:copy>
+    </xsl:template>
+
+
+
+    <xsl:template
+        match="w:p[w:pPr/w:pStyle/@w:val='Abstract']
+        [not(preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Abstract')]//w:r[last()]
+        ">
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*"/>
+
+            <xsl:apply-templates
+                select="ancestor::w:p/following-sibling::w:p[w:pPr/w:pStyle/@w:val = 'Abstract']
+                [not(preceding-sibling::w:p[not(w:pPr/w:pStyle/@w:val='Abstract')]
+                [preceding-sibling::*[self::* = current()/ancestor::w:p]])
+                ]//w:r/w:t"
+            />
+        </xsl:copy>
+    </xsl:template>
+
+
+
+
+
+
+    <!--
+    Le texte des paragraphes qui doivent être fusionnés.
+    On le copie avec une balise <w:br> avant pour qu'il y ait un saut de ligne.
+    
+    <xsl:template
+        match="w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='DescriptionAuteur']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'DescriptionAuteur']]
+        | w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='Resume']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Resume']]
+        | w:t[ancestor::w:p[w:pPr/w:pStyle/@w:val='Abstract']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Abstract']]
+        ">
+        <w:br/>
+        <xsl:copy>
+            <xsl:apply-templates select="node() | @*"/>
+        </xsl:copy>
+    </xsl:template>
+    -->
+
+
+
+   
+
+
+
+
+
+
+
+    <!--
+    On ne sélectionne pas les paragraphes dont le texte a été fusionné avec le paragraphe précédent.
+    -->
+    <xsl:template
+        match="w:p[w:pPr/w:pStyle/@w:val='DescriptionAuteur']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'DescriptionAuteur']
+        | w:p[w:pPr/w:pStyle/@w:val='Resume']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Resume']
+        | w:p[w:pPr/w:pStyle/@w:val='Abstract']
+        [preceding-sibling::w:p[1]/w:pPr/w:pStyle/@w:val = 'Abstract']
+        "
+    />
+</xsl:stylesheet>

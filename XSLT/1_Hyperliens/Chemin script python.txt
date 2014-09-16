@@ -1,0 +1,51 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+4 PASSAGES :
+
+PASSAGE 1 document.xml, footnotes.xml, endnotes.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_document.xsl" -s "word/document.xml,word/footnotes.xml,word/endnotes.xml" --get_tempdir
+
+PASSAGE 2 document.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT1.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT2.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\relations.xsl" -s "word/_rels/document.xml.rels" -p "file='document'" --get_tempdir
+
+PASSAGE 3 footnotes.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT2.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT3.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\relations.xsl" -s "word/_rels/footnotes.xml.rels" -p "file='footnotes'" --get_tempdir
+
+PASSAGE 4 footnotes.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT3.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT4.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\relations.xsl" -s "word/_rels/endnotes.xml.rels" -p "file='endnotes'" --get_tempdir
+
+
+
+
+6 PASSAGES :
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_document.xsl" -s "word/document.xml" --get_tempdir
+
+PASSAGE 2 document.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT1.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT2.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_document_rels.xsl" -s "word/_rels/document.xml.rels" --get_tempdir
+
+PASSAGE 3 footnotes.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT2.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT3.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_document.xsl" -s "word/footnotes.xml" --get_tempdir
+
+PASSAGE 4 footnotes.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT3.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT4.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_footnotes_rels.xsl" -s "word/_rels/footnotes.xml.rels" --get_tempdir
+
+PASSAGE 5 endnotes.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT4.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT5.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_document.xsl" -s "word/endnotes.xml" --get_tempdir
+
+PASSAGE 6 endnotes.xml.rels
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT5.docx" -o "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\OUTPUT\Tous_les_styles_OUTPUT6.docx" -t "C:\Users\r.boistel\Documents\Macros_word\1_Hyperliens\XSL\hyperlinks_endnotes_rels.xsl" -s "word/_rels/endnotes.xml.rels" --get_tempdir
+
+

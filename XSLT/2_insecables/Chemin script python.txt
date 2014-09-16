@@ -1,0 +1,11 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\2_insecables\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\2_insecables\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\2_insecables\XSL\insecables.xsl" -s "word/document.xml" --get_tempdir
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\2_insecables\OUTPUT\Tous_les_styles_OUTPUT1.docx" -o "C:\Users\r.boistel\Documents\Macros_word\2_insecables\OUTPUT\Tous_les_styles_OUTPUT2.docx" -t "C:\Users\r.boistel\Documents\Macros_word\2_insecables\XSL\insecables.xsl" -s "word/footnotes.xml" --get_tempdir
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\2_insecables\OUTPUT\Tous_les_styles_OUTPUT2.docx" -o "C:\Users\r.boistel\Documents\Macros_word\2_insecables\OUTPUT\Tous_les_styles_OUTPUT3.docx" -t "C:\Users\r.boistel\Documents\Macros_word\2_insecables\XSL\insecables.xsl" -s "word/endnotes.xml" --get_tempdir

@@ -1,0 +1,10 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\8_Double_saut_paragraphe\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\8_Double_saut_paragraphe\OUTPUT\Tous_les_styles_OUTPUT.docx" -t "C:\Users\r.boistel\Documents\Macros_word\8_Double_saut_paragraphe\XSL\double_saut_paragraphe.xsl" -s "word/document.xml,word/footnotes.xml,word/endnotes.xml"
+
+
+
