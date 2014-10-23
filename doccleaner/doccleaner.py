@@ -170,6 +170,7 @@ def main(argv):
     #Fill the folder with all files zipped in the input file
     f = zipfile.ZipFile(outputFile, mode='r', compression=zipfile.ZIP_DEFLATED)
     for name in f.namelist():
+        print(folder)
         f.extract(name, folder)
     f.close()
 
@@ -188,45 +189,43 @@ def main(argv):
     #For each input file listed in the json file
     subfileNumber = 0
     for subfile_input in subFileConf["subfile_input"]:
-
         #check if each listed file exists...
         try:
             #Retrieving the document
             document = openDocument(inputFile, subFileConf["subfile_input"][subfileNumber], parser)
             #Process it with the xsl file defined as transformFile (with the -t commandline)
             #If some parameters have been passed, they are in a list "XSLparameter"
-
+    
             if XSLparameter != None:
-
+                
                 paramDict = {}
                 #for each element separated by a coma (for instance "fooA=value A,fooB=value B", we'll make 2 processings: one for "fooA=value A", another one for "fooB=value B"
                 for element in XSLparameter:
                     try:
                         #If we have several parameters, separated by a comma -> generator comprehension
                         paramDict = dict(item.split(",") for item in element.split('='))
-
+    
                     except:
                         #if we have only one parameter
                         paramDict[str(element.split("=")[0])] = (str(element.split("=")[1]))
-
+    
                 #Pass all the parameters simulteanously
                 document = transform(document, **paramDict)#, **paramDict)#, paramDict)
-
+    
             elif XSLparameter == "":
                 #Empty parameter, don't pass it
                 document = transform(document)
             else:
                 #Any other case (e.g. no parameter), don't pass it
                 document = transform(document)
-
             #Extract it to the temp "files" folder
-            #print os.path.join("files", line)
-            saveElement(os.path.join(folder, subFileConf["subfile_input"][subfileNumber]), document)
+            saveElement(os.path.join(folder, subFileConf["subfile_output"][subfileNumber]), document)
             subfileNumber += 1
         #if file doesn't exist, do not try to process it
         except Exception as e:
             print("Error : " + str(e))
             pass
+
     #Unzip the outputFIle
     z= zipfile.ZipFile(outputFile, mode='w', compression=zipfile.ZIP_DEFLATED)
 
