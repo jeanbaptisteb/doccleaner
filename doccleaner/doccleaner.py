@@ -94,7 +94,7 @@ def checkIfFileExists(fileToCheck):
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "i:o:t:s:p:g", ["input=", "output=", "transform=", "subfile=", "XSLparameter=", "get_tempdir"])
+        opts, args = getopt.getopt(argv, "i:o:t:s:p:g", ["input=", "output=", "transform=", "subfile=", "XSLparameter="])
 
     except:# getopt.GetoptError:
         usage()
@@ -121,8 +121,10 @@ def main(argv):
             subFile = arg
         elif opt in ("-p", "--XSLparameter"):
             XSLparameter = arg
-        elif opt in ("-g", "--get_tempdir"):
-            tempdir = "=".join([ "tempdir", "\"{0}\"".format(str(folder)) ])
+    
+    
+    #Variable to pass the absolute path of the temporary folder to the XSL sheet, if needed
+    tempdir = "=".join([ "tempdir", "\"{0}\"".format(str(folder)) ])
 
     #If "-g" or "--get_tempdir" is used, append tempdir="path/to/temporary folder" to the XSLparameter string
     #It will pass the absolute path of the temporary folder to the XSL sheet, in a $tempdir parameter

@@ -41,6 +41,10 @@ doccleaner.py
  --subfile "path to a json configuration file defining which subfile(s) to process" (optional)  
  --XSLparameter "parameter(s) to pass" (optional) 
 
+
+####$tempdir variable
+The python script also create a "$tempdir" variable, which can be passed to the XSL sheet. This variable contains the absolute path of the temporary folder to which the XML files are extracted. It can be useful if you need to process multiple XML files at the same time with the same XSL sheet.
+ 
 #### Json conf file specifications
 When using the "subfile" parameter, you need to define a Json configuration file, containing a list of input subfiles from which you want to retrieve contents, and a list of output subfiles where to put the result of the XSL transformation. For an example, see the docx.json file in the docx folder, or the examples below.
  
@@ -94,6 +98,8 @@ If you need to process several subfiles, the Json may look like this :
 The example above will output the result of the XSL transformation :
 * from word/document.xml to word/comments.xml
 * from word/footnotes.xml to word/footnotes.xml
+
+You will probably have to use the [$tempdir variable](#tempdir-variable) in your XSL for making the above example work.
     
 ####From a script
 #####Python 2 or 3
