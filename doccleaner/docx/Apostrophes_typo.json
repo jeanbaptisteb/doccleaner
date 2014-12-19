@@ -1,0 +1,6 @@
+{ 
+
+    "subfile_input" : ["word/document.xml", "word/footnotes.xml", "word/endnotes.xml"], 
+    "subfile_output": ["word/document.xml", "word/footnotes.xml", "word/endnotes.xml"]
+   
+}
