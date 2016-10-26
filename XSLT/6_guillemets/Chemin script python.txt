@@ -1,0 +1,7 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\6_guillemets\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\6_guillemets\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\6_guillemets\XSL\guillemets.xsl" -s "word/document.xml,word/footnotes.xml,word/endnotes.xml" --get_tempdir -p "open_quotes='«',closing_quotes='»'"

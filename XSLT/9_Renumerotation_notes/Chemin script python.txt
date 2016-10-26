@@ -1,0 +1,16 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 footnotes.xml, endnotes.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\XSL\Numerotation_notes.xsl" -s "word/footnotes.xml,word/endnotes.xml" --get_tempdir
+
+
+
+TEST
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\INPUT\bug_notes_word\13-merle.docx" -o "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\9_Renumerotation_notes\XSL\Numerotation_notes.xsl" -s "word/footnotes.xml,word/endnotes.xml" --get_tempdir
+
+
+
+

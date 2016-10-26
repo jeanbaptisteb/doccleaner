@@ -1,0 +1,18 @@
+C:\Python34\Lib\site-packages\doccleaner-0.2.0-py3.4.egg\doccleaner
+
+
+
+PASSAGE 1 document.xml, footnotes.xml, endnotes.xml
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\INPUT\Tous_les_styles.docx" -o "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\OUTPUT\Tous_les_styles_OUTPUT1.docx" -t "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\XSL\Ponctuation_paragraphes.xsl" -s "word/document.xml,word/footnotes.xml,word/endnotes.xml" --get_tempdir
+
+
+
+PASSAGE 2 document.xml (sortie sur comments.xml)
+
+python doccleaner.py -i "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\OUTPUT\Tous_les_styles_OUTPUT1.docx" -o "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\OUTPUT\comments.docx" -t "C:\Users\r.boistel\Documents\Macros_word\7_Ponctuation_paragraphes\XSL\Ponctuation_paragraphes_comments.xsl" -s "word/document.xml" --get_tempdir
+
+
+
+
+

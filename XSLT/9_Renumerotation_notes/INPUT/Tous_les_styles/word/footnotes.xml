@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:footnotes xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+    xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+    xmlns:w10="urn:schemas-microsoft-com:office:word"
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml">
+    <w:footnote w:type="separator" w:id="-1">
+        <w:p w:rsidR="00A135E9" w:rsidRDefault="00A135E9" w:rsidP="008C21AB">
+            <w:r>
+                <w:separator/>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:type="continuationSeparator" w:id="0">
+        <w:p w:rsidR="00A135E9" w:rsidRDefault="00A135E9" w:rsidP="008C21AB">
+            <w:r>
+                <w:continuationSeparator/>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="1">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:t>3</w:t>
+            </w:r>
+            <w:r w:rsidR="00033584">
+                <w:t xml:space="preserve"> Note 1.</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="2">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:t>5</w:t>
+            </w:r>
+            
+            <w:r w:rsidR="00033584">
+                <w:t xml:space="preserve"> Note 2.</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="3">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:t>3</w:t>
+            </w:r>
+            <w:r w:rsidR="00033584">
+                <w:t xml:space="preserve"> Note 3.</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="4">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:t>5</w:t>
+            </w:r>
+            <w:r w:rsidR="00033584">
+                <w:t xml:space="preserve"> Note 4.</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="5">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:t>10</w:t>
+            </w:r>
+            <w:r w:rsidR="00033584">
+                <w:t xml:space="preserve"> Note 5.</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="6">
+        <w:p w:rsidR="00033584" w:rsidRDefault="0096326B">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:footnoteRef/>
+            </w:r>
+            
+            <!--
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotaedebasdep"/>
+                </w:rPr>
+                <w:t>1</w:t>
+            </w:r>
+            -->
+            
+            <w:r>
+                <w:t>   1</w:t>
+            </w:r>
+            <w:r>
+                <w:t>22 La note 122 suit la note</w:t>
+            </w:r>
+            <w:r>
+                <w:t>121 </w:t>
+            </w:r>
+            <w:r>
+                <w:t>et précède la note </w:t>
+            </w:r>
+            <w:r>
+                <w:t>1</w:t>
+            </w:r>
+            <w:r>
+                <w:t>2</w:t>
+                <w:t>3</w:t>
+            </w:r>
+            <w:r>
+                <w:t>.</w:t>
+            </w:r>
+            
+            <!--
+            <w:r>
+                <w:t>1</w:t>
+                <w:t>23</w:t>
+                <w:t>4 Texte de la 1234ème note.</w:t>
+                <w:t>56</w:t>
+            </w:r>
+            -->
+            
+            
+        </w:p>
+    </w:footnote>
+    <w:footnote w:id="7">
+        <w:p w:rsidR="00FE0A74" w:rsidRDefault="00FE0A74">
+            <w:pPr>
+                <w:pStyle w:val="Notedebasdepage"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="Appelnotedebasdep"/>
+                </w:rPr>
+                <w:footnoteRef/>
+            </w:r>
+            <w:r>
+                <w:t xml:space="preserve"> Exemple de date : 1515</w:t>
+            </w:r>
+        </w:p>
+    </w:footnote>
+</w:footnotes>

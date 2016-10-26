@@ -1,0 +1,1501 @@
+<w:document xmlns:ve="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml">
+  <w:body>
+    <w:p w:rsidR="00FE1201" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Titre"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Pratique du surf des mers chez les M&#233;rovingiens du Pl&#233;istoc&#232;ne</w:t>
+      </w:r>
+      <w:r w:rsidR="000D2E4B">
+        <w:t xml:space="preserve"> (Word)</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00BE25EE" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Surtitre"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Science improbable</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Sous-titre"/>
+      </w:pPr>
+      <w:r>
+        <w:t>D'apr&#232;s les fossil</w:t>
+      </w:r>
+      <w:r w:rsidR="00FE1201">
+        <w:t>e</w:t>
+      </w:r>
+      <w:r>
+        <w:t>s de surf de la plage d'Hossegor</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Auteur"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Brian Ch&#233;bran</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRPr="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="DescriptionAuteur"/>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>Universit&#233; de surf de Biarritz</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Auteur"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Maria Lasso&#160;</w:t>
+      </w:r>
+      <w:r w:rsidR="00D23EB9">
+        <w:t>VI</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="DescriptionAuteur"/>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>Universidade de Copacabana</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00C65C60" w:rsidRDefault="00C65C60" w:rsidP="00C65C60">
+      <w:pPr>
+        <w:pStyle w:val="Auteur"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Benoit Dedaux</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00C65C60" w:rsidRDefault="00C65C60" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="DescriptionAuteur"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+        <w:t>Laboratoire des Op&#233;rations Linguistiques, Universit&#233; de Couvignon dans l'Aube</w:t>
+        <w:t>La description d'auteur de Benoit Dedaux continue ici.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="00D35C46" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Traducteur"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Je</w:t>
+      </w:r>
+      <w:r w:rsidR="003B1DB0">
+        <w:t>an-Jason MacLovin</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="DescriptionAuteur"/>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>Swagg Institute</w:t>
+        <w:t>o&#249; on apprend les bases de l'art de se pavaner, ou "pavaning".</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Langue"/>
+      </w:pPr>
+      <w:r>
+        <w:t>fr</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Titreoeuvre"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Titre de l&#8217;&#339;uvre comment&#233;e</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Auteuroeuvre"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Auteur de l&#8217;&#339;uvre comment&#233;e</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="NoticeBibliooeuvre"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00FE1201">
+        <w:t>Notice bibliographique de l&#8217;&#339;uvre comment&#233;e</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRPr="00FE1201" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Datepublioeuvre"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00FE1201">
+        <w:t>Date de publication de l&#8217;&#339;uvre comment&#233;e</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Resume"/>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>Dans cet article, on examine la fa&#231;on dont la musique afro-cubaine fut import&#233;e</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>et distribu&#233;e au Congo-belge ainsi que la nature de l&#8217;emprunt stylistique ayant</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>donn&#233; &#224; la musique congolaise une saveur fortement afro-cubaine.</w:t>
+        <w:t>Suite du r&#233;sum&#233;,</w:t>
+        <w:t>et fin du r&#233;sum&#233;.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRPr="00E86E62" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="MotsCles"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:lang w:val="en-US" w:eastAsia="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00E86E62">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:lang w:val="en-US" w:eastAsia="en-US"/>
+        </w:rPr>
+        <w:t>surf, M&#233;rovingiens</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRPr="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Titleen"/>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Surf</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t xml:space="preserve">ing practices for Pleistocene's </w:t>
+      </w:r>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Merovingians</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="003B1DB0" w:rsidP="003B1DB0">
+      <w:pPr>
+        <w:pStyle w:val="Abstract"/>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Since the late 1980s, certain writers have helped</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> radically renew thinking about </w:t>
+      </w:r>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Africa in fiction, by innovating in literary genres, language, settings and the</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r w:rsidR="00E7298A">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>choice of characters;</w:t>
+        <w:t>further abstract in this paragraph.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="003B1DB0" w:rsidRDefault="0024074F" w:rsidP="0024074F">
+      <w:pPr>
+        <w:pStyle w:val="keywords"/>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>surfing, Merovingians</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRPr="00E86E62" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Geographie"/>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00E86E62">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Hossegor, Gondwana</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRPr="00E86E62" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Periode"/>
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00E86E62">
+        <w:rPr>
+          <w:lang w:val="en-US"/>
+        </w:rPr>
+        <w:t>Moyen-&#194;ge, Pl&#233;istoc&#232;ne</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE1201" w:rsidRPr="003B1DB0" w:rsidRDefault="00FE1201" w:rsidP="00FE1201">
+      <w:pPr>
+        <w:pStyle w:val="Themes"/>
+      </w:pPr>
+      <w:r w:rsidRPr="003B1DB0">
+        <w:t>Pr&#233;histoire du surf</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0024074F" w:rsidRPr="00FE1201" w:rsidRDefault="00D35C46" w:rsidP="00D35C46">
+      <w:pPr>
+        <w:pStyle w:val="Pagination"/>
+        <w:rPr>
+          <w:rFonts w:cs="Times New Roman"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:t>10-15</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0024074F" w:rsidRPr="00D35C46" w:rsidRDefault="00D35C46" w:rsidP="00D35C46">
+      <w:pPr>
+        <w:pStyle w:val="Datepubli"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00D35C46">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>01/03/2014</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00D35C46" w:rsidRPr="00D35C46" w:rsidRDefault="00D35C46" w:rsidP="00D35C46">
+      <w:pPr>
+        <w:pStyle w:val="Datepublipapier"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00D35C46">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>01/03/201</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D35C46">
+        <w:t>3</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0024074F" w:rsidRPr="00FE1201" w:rsidRDefault="00D35C46" w:rsidP="00D35C46">
+      <w:pPr>
+        <w:pStyle w:val="Erratum"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00D35C46">
+        <w:t>On ne voit pas l&#8217;int&#233;r&#234;t d&#8217;ins&#233;rer un errat</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">um en t&#234;te de texte, mieux vaut </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D35C46">
+        <w:t>directement et signaler la correction e</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">n historique &#8212;&#160;puisque de toute </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D35C46">
+        <w:t>fa&#231;on il faudra recharger le document&#8230;</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0024074F" w:rsidRDefault="00B51BEB" w:rsidP="00B51BEB">
+      <w:pPr>
+        <w:pStyle w:val="NDLR"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00B51BEB">
+        <w:t>Ceci est une note de l'&#233;diteur</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> ou de la r&#233;daction.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00D35C46" w:rsidRDefault="00B51BEB" w:rsidP="00B51BEB">
+      <w:pPr>
+        <w:pStyle w:val="NDLA"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00B51BEB">
+        <w:lastRenderedPageBreak/>
+        <w:t>Ceci est une note de l&#8217;auteur.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00D35C46" w:rsidRDefault="00A724B3" w:rsidP="00A724B3">
+      <w:pPr>
+        <w:pStyle w:val="Remerciements"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00A724B3">
+        <w:t>Je remercie mon institution nourrici&#232;re qui m&#8217;</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">a permis de mener cette enqu&#234;te </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00A724B3">
+        <w:t>chez les Primitifs flamands &#8211; sans oublier n</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">otre ch&#232;re sncf dont les trains </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00A724B3">
+        <w:t>arrivent &#224; l&#8217;heure.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00D35C46" w:rsidRDefault="00A724B3" w:rsidP="00A724B3">
+      <w:pPr>
+        <w:pStyle w:val="Dedicace"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00A724B3">
+        <w:t>&#192; Harpo Marx.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE0A74" w:rsidRDefault="00FE0A74" w:rsidP="00FE0A74">
+      <w:pPr>
+        <w:pStyle w:val="Paragraphesansretrait"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>D&#233;couvrir c</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">hez les Primitifs m&#233;di&#233;vaux les </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>exemples accomplis du &#171;&#160;naturalisme spiritual</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">iste&#160;&#187; n&#8217;a rien d&#8217;une invention </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>huysmansienne. Il y a belle lurette qu&#8217;un Ruskin a</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> d&#233;velopp&#233; une telle </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>interpr&#233;tation et ceci dans une m&#234;me persp</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">ective &#224; la fois critique de la </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>modernit&#233; et programmatique d&#8217;un avenir meilleur.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00A724B3" w:rsidRPr="008C21AB" w:rsidRDefault="008C21AB" w:rsidP="008C21AB">
+      <w:r w:rsidRPr="008C21AB">
+        <w:t>Ce manifeste pour une &#339;uvre &#224; venir ne s&#8217;&#233;taie de nul exemple litt&#233;raire convenable. Dosto&#239;evsky &#233;voqu&#233; est aussi vite r&#233;cus&#233; pour trop de socialisme. Reste &#224; changer de champ r&#233;f&#233;rentiel, &#224; quitter l&#8217;&#233;criture pour la peinture, le texte pour l&#8217;image constitu&#233;e comme proph&#233;ti</w:t>
+      </w:r>
+      <w:r w:rsidR="00641715">
+        <w:t>que de ce qui aurait &#224; advenir.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00A724B3" w:rsidRDefault="00D24230" w:rsidP="00D24230">
+      <w:pPr>
+        <w:pStyle w:val="Titre1"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>Les Primitifs</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE0A74" w:rsidRDefault="00FE0A74" w:rsidP="00D24230">
+      <w:pPr>
+        <w:pStyle w:val="Paragraphesansretrait"/>
+      </w:pPr>
+      <w:r w:rsidRPr="008C21AB">
+        <w:t xml:space="preserve">Avant les plaisirs sulfureux du </w:t>
+      </w:r>
+      <w:hyperlink r:id="rId8" w:anchor="q=satanisme" w:history="1">
+        <w:r w:rsidRPr="00FE0A74">
+          <w:rPr>
+            <w:rStyle w:val="Lienhypertexte"/>
+          </w:rPr>
+          <w:t>satanisme</w:t>
+        </w:r>
+      </w:hyperlink>
+      <w:r w:rsidRPr="008C21AB">
+        <w:t>, Huysmans offre au lecteur de L&#224;-bas, ceux de la dissertation litt&#233;raire en trois points. Th&#232;se, antith&#232;se, synth&#232;se, tout y est qui conduit &#224; la n&#233;cessit&#233; d&#8217;un &#171; naturalisme spiritualiste &#187; qui seul pourra r&#233;g&#233;n&#233;r</w:t>
+      </w:r>
+      <w:r>
+        <w:t>er l&#8217;art moderne.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00A724B3" w:rsidRDefault="00D24230" w:rsidP="00690DA3">
+      <w:r w:rsidRPr="00D24230">
+        <w:t xml:space="preserve">Cependant, rappeler </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00690DA3">
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Ruskin</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t xml:space="preserve"> manifes</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">te aussi le propre de </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D04536">
+        <w:rPr>
+          <w:i/>
+        </w:rPr>
+        <w:t>Huysman</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">s. </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>En effet, comme Rio en France nagu&#232;re, Ruski</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">n ne pense fonci&#232;rement qu&#8217;&#224; la </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t xml:space="preserve">peinture italienne. C&#8217;est-&#224;-dire &#224; des </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00690DA3">
+        <w:rPr>
+          <w:b/>
+          <w:i/>
+        </w:rPr>
+        <w:t>Primitifs</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> qui, selon l&#8217;</w:t>
+      </w:r>
+      <w:hyperlink r:id="rId9" w:history="1">
+        <w:r w:rsidRPr="001A1673">
+          <w:rPr>
+            <w:rStyle w:val="Lienhypertexte"/>
+          </w:rPr>
+          <w:t>historiographie</w:t>
+        </w:r>
+      </w:hyperlink>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t xml:space="preserve">dominante, par leurs essais </w:t>
+      </w:r>
+      <w:hyperlink r:id="rId10" w:history="1">
+        <w:r w:rsidRPr="001A1673">
+          <w:rPr>
+            <w:rStyle w:val="Lienhypertexte"/>
+          </w:rPr>
+          <w:t>balbutiants</w:t>
+        </w:r>
+      </w:hyperlink>
+      <w:r w:rsidRPr="00D24230">
+        <w:t xml:space="preserve"> auraient</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:hyperlink r:id="rId11" w:anchor="tocto1n4" w:history="1">
+        <w:r w:rsidRPr="001A1673">
+          <w:rPr>
+            <w:rStyle w:val="Lienhypertexte"/>
+          </w:rPr>
+          <w:t>ouvert</w:t>
+        </w:r>
+      </w:hyperlink>
+      <w:r>
+        <w:t xml:space="preserve"> la voie au progr&#232;s vers </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00D24230">
+        <w:t>le miracle de la Renaissance.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:pStyle w:val="Titre2"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Gr&#252;newald</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 1</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 2</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 3</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="5"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 4</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 1</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 2</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRPr="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 3</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRDefault="0067477A" w:rsidP="0067477A">
+      <w:pPr>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="6"/>
+        </w:numPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0067477A">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Item 4</w:t>
+      </w:r>
+    </w:p>
+    <w:tbl>
+      <w:tblPr>
+        <w:tblW w:w="0" w:type="auto"/>
+        <w:tblBorders>
+          <w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+          <w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+          <w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+          <w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+          <w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+          <w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+        </w:tblBorders>
+        <w:tblLook w:val="04A0"/>
+      </w:tblPr>
+      <w:tblGrid>
+        <w:gridCol w:w="3070"/>
+        <w:gridCol w:w="3071"/>
+        <w:gridCol w:w="3071"/>
+      </w:tblGrid>
+      <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3070" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 1</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3071" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 2</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3071" w:type="dxa"/>
+            <w:vMerge w:val="restart"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 3</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="6141" w:type="dxa"/>
+            <w:gridSpan w:val="2"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 4</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3071" w:type="dxa"/>
+            <w:vMerge/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="6141" w:type="dxa"/>
+            <w:gridSpan w:val="2"/>
+            <w:vMerge w:val="restart"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 5</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3071" w:type="dxa"/>
+          </w:tcPr>
+          <w:tbl>
+            <w:tblPr>
+              <w:tblW w:w="0" w:type="auto"/>
+              <w:tblBorders>
+                <w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                <w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                <w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                <w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                <w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                <w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+              </w:tblBorders>
+              <w:tblLook w:val="04A0"/>
+            </w:tblPr>
+            <w:tblGrid>
+              <w:gridCol w:w="1420"/>
+              <w:gridCol w:w="1420"/>
+            </w:tblGrid>
+            <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+              <w:tc>
+                <w:tcPr>
+                  <w:tcW w:w="1420" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+                  <w:pPr>
+                    <w:ind w:firstLine="0"/>
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                  </w:pPr>
+                  <w:r w:rsidRPr="0058199C">
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                    <w:t>Cellule 6.1</w:t>
+                  </w:r>
+                </w:p>
+              </w:tc>
+              <w:tc>
+                <w:tcPr>
+                  <w:tcW w:w="1420" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+                  <w:pPr>
+                    <w:ind w:firstLine="0"/>
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                  </w:pPr>
+                  <w:r w:rsidRPr="0058199C">
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                    <w:t>Cellule 6.2</w:t>
+                  </w:r>
+                </w:p>
+              </w:tc>
+            </w:tr>
+            <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+              <w:tc>
+                <w:tcPr>
+                  <w:tcW w:w="1420" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+                  <w:pPr>
+                    <w:ind w:firstLine="0"/>
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                  </w:pPr>
+                  <w:r w:rsidRPr="0058199C">
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                    <w:t>Cellule 6.3</w:t>
+                  </w:r>
+                </w:p>
+              </w:tc>
+              <w:tc>
+                <w:tcPr>
+                  <w:tcW w:w="1420" w:type="dxa"/>
+                </w:tcPr>
+                <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+                  <w:pPr>
+                    <w:ind w:firstLine="0"/>
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                  </w:pPr>
+                  <w:r w:rsidRPr="0058199C">
+                    <w:rPr>
+                      <w:rFonts w:eastAsia="Calibri"/>
+                    </w:rPr>
+                    <w:t>Cellule 6.4</w:t>
+                  </w:r>
+                </w:p>
+              </w:tc>
+            </w:tr>
+          </w:tbl>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+        </w:tc>
+      </w:tr>
+      <w:tr w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidTr="0058199C">
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="6141" w:type="dxa"/>
+            <w:gridSpan w:val="2"/>
+            <w:vMerge/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="3071" w:type="dxa"/>
+          </w:tcPr>
+          <w:p w:rsidR="006E371B" w:rsidRPr="0058199C" w:rsidRDefault="006E371B" w:rsidP="0058199C">
+            <w:pPr>
+              <w:ind w:firstLine="0"/>
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0058199C">
+              <w:rPr>
+                <w:rFonts w:eastAsia="Calibri"/>
+              </w:rPr>
+              <w:t>Cellule 7</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+    </w:tbl>
+    <w:p w:rsidR="001E5FDD" w:rsidRPr="00C96F28" w:rsidRDefault="001E5FDD" w:rsidP="00C96F28">
+      <w:pPr>
+        <w:pStyle w:val="TitreIllustration"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00C96F28">
+        <w:t xml:space="preserve">Figure 1. </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00C96F28">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Reconstruction virtuelle du Moustier 2</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00C96F28">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:br/>
+      </w:r>
+      <w:r w:rsidRPr="00766312">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:i/>
+        </w:rPr>
+        <w:t>Figure 1 - Virtual reconstruction of Le Moustier 2.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00EC6833" w:rsidRDefault="00FB1B61" w:rsidP="00ED5EC1">
+      <w:pPr>
+        <w:ind w:left="284" w:firstLine="0"/>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:noProof/>
+        </w:rPr>
+        <w:lastRenderedPageBreak/>
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="0" distR="0">
+            <wp:extent cx="4572000" cy="4676775"/>
+            <wp:effectExtent l="19050" t="0" r="0" b="0"/>
+            <wp:docPr id="1" name="Image 1" descr="Figure 6 - One of the reconstructions of Le Moustier 2.Figure 6 - Une des reconstructions du Moustier 2."/>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:nvPicPr>
+                    <pic:cNvPr id="0" name="Picture 1" descr="Figure 6 - One of the reconstructions of Le Moustier 2.Figure 6 - Une des reconstructions du Moustier 2."/>
+                    <pic:cNvPicPr>
+                      <a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>
+                    </pic:cNvPicPr>
+                  </pic:nvPicPr>
+                  <pic:blipFill>
+                    <a:blip r:embed="rId12" cstate="print"/>
+                    <a:srcRect/>
+                    <a:stretch>
+                      <a:fillRect/>
+                    </a:stretch>
+                  </pic:blipFill>
+                  <pic:spPr bwMode="auto">
+                    <a:xfrm>
+                      <a:off x="0" y="0"/>
+                      <a:ext cx="4572000" cy="4676775"/>
+                    </a:xfrm>
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                    <a:noFill/>
+                    <a:ln w="9525">
+                      <a:noFill/>
+                      <a:miter lim="800000"/>
+                      <a:headEnd/>
+                      <a:tailEnd/>
+                    </a:ln>
+                  </pic:spPr>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+          </wp:inline>
+        </w:drawing>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00EC6833" w:rsidRPr="00C96F28" w:rsidRDefault="00EC6833" w:rsidP="00C96F28">
+      <w:pPr>
+        <w:pStyle w:val="LegendeIllustration"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00C96F28">
+        <w:t>L&#233;gende en fran&#231;ais</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00C96F28">
+        <w:br/>
+      </w:r>
+      <w:r w:rsidRPr="00BC24FF">
+        <w:rPr>
+          <w:i/>
+        </w:rPr>
+        <w:t>English legend</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00A43097" w:rsidRPr="00C96F28" w:rsidRDefault="00A43097" w:rsidP="00C96F28">
+      <w:pPr>
+        <w:pStyle w:val="CrditsIllustration"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00C96F28">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Cr&#233;dits</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Titre2"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Huysmans et Des&#160;Esseintes</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE0A74" w:rsidRPr="00FE0A74" w:rsidRDefault="00FE0A74" w:rsidP="00FE0A74">
+      <w:pPr>
+        <w:pStyle w:val="Epigraphe"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00641715">
+        <w:t>&#171;&#160;S&#8217;il n&#8217;y a personne &#224; l&#8217;arr&#234;t, je ne m&#8217;arr&#234;te pas.&#160;&#187;</w:t>
+      </w:r>
+      <w:r>
+        <w:br/>
+        <w:t>Un chauffeur de bus</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0067477A" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Citation"/>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:t>Le Laus perennis du Moyen &#194;ge revit en cet office incessant de la peinture que composa Gr&#252;newald.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Citationbis"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>A regarder ce R&#233;dempteur de vadrouille, ce Dieu de morgue, cela changeait.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Citationter"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Cette charogne &#233;ploy&#233;e &#233;tait celle d&#8217;un Dieu et, sans aur&#233;ole, sans nimbe, dans le simple accoutrement de cette couronne &#233;bouriff&#233;e.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Question"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>L&#8217;engouement autour du Web 2.0 diff&#232;re-t-il de la p&#233;riode dotcom de la fin des ann&#233;es 90&#160;?</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Reponse"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>La plus grande diff&#233;rence est l&#8217;absence relative de capital-risque et de financement d&#8217;entreprise.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="encadre"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Le biographe &#224; la fois organise un r&#233;cit et subvertit cette forme par l&#8217;exc&#232;s jouissif sadique des souffrances alternant avec les chromos pieux des visions paradisiaques.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Separateur"/>
+      </w:pPr>
+      <w:r>
+        <w:t>***</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRPr="0095418F" w:rsidRDefault="0095418F" w:rsidP="0095418F">
+      <w:pPr>
+        <w:pStyle w:val="Code"/>
+      </w:pPr>
+      <w:r w:rsidRPr="0095418F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:lastRenderedPageBreak/>
+        <w:t>Permet d&#8217;indiquer des &#233;l&#233;ments de code HTML au sein du texte &lt;a href="http://socio-anthropologie.revues.org&gt; sans qu&#8217;ils soient interpr&#233;t&#233;s.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="0095418F" w:rsidRDefault="00FE0A74" w:rsidP="00FE0A74">
+      <w:pPr>
+        <w:pStyle w:val="Titre3"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00FE0A74">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Les mouvements de</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00FE0A74">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>population</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00FE0A74" w:rsidRDefault="00FE0A74" w:rsidP="00FE0A74">
+      <w:pPr>
+        <w:pStyle w:val="Paragraphesansretrait"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Inutile l&#224; encore de se r&#233;crier, de consulter l&#8217;histoire et les dates</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="Appelnotedebasdep"/>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:footnoteReference w:id="1"/>
+      </w:r>
+      <w:r w:rsidR="00283F88">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t xml:space="preserve">, </w:t>
+      </w:r>
+      <w:r w:rsidR="00283F88">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+        <w:t>l&#8217;Angelico huysmansien n&#8217;est pas contemporain des premiers temps de la Renaissance.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00F354F7" w:rsidRDefault="00F354F7" w:rsidP="00F354F7">
+      <w:pPr>
+        <w:pStyle w:val="Titre1"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Conclusion</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00F354F7" w:rsidRDefault="00F354F7" w:rsidP="003A2040">
+      <w:pPr>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Texte de conclusion.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00F96FB7" w:rsidRDefault="00F96FB7" w:rsidP="00F96FB7">
+      <w:pPr>
+        <w:pStyle w:val="Titre1"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Titre 1 de la bibliographie</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00F96FB7" w:rsidRDefault="00F96FB7" w:rsidP="00F96FB7">
+      <w:pPr>
+        <w:pStyle w:val="Bibliographie"/>
+      </w:pPr>
+      <w:r w:rsidRPr="00BB5F73">
+        <w:t>A</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00BB5F73">
+        <w:rPr>
+          <w:smallCaps/>
+        </w:rPr>
+        <w:t>mun&#225;tegui</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00BB5F73">
+        <w:t xml:space="preserve"> Solar Domingo, </w:t>
+      </w:r>
+      <w:r w:rsidRPr="00BB5F73">
+        <w:rPr>
+          <w:i/>
+        </w:rPr>
+        <w:t>Historia social de Chile,</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00BB5F73">
+        <w:t xml:space="preserve"> Santiago, Nascimento, 1932, 346&#160;p</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00B500E3" w:rsidRDefault="00B500E3" w:rsidP="00B500E3">
+      <w:pPr>
+        <w:pStyle w:val="Titre2"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Titre 2 de la bibliographie</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00AC7149" w:rsidRDefault="00AC7149" w:rsidP="00F96FB7">
+      <w:pPr>
+        <w:pStyle w:val="Bibliographie"/>
+      </w:pPr>
+      <w:r>
+        <w:t>H</w:t>
+      </w:r>
+      <w:r w:rsidRPr="00AC7149">
+        <w:rPr>
+          <w:smallCaps/>
+        </w:rPr>
+        <w:t>ugo</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> Victor, </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:i/>
+        </w:rPr>
+        <w:t>Les Mis&#233;rables</w:t>
+      </w:r>
+      <w:r>
+        <w:t>, la Pl&#233;iade, Gallimard, 1951</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00CC348D" w:rsidRDefault="00CC348D" w:rsidP="00CC348D">
+      <w:pPr>
+        <w:pStyle w:val="Titre1"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Glossaire / Titre 1 d'annexe</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="00CC348D" w:rsidRDefault="00AA3A83" w:rsidP="005B336F">
+      <w:pPr>
+        <w:pStyle w:val="Annexe"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r w:rsidRPr="00AA3A83">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:i/>
+        </w:rPr>
+        <w:t>Almojarifazgo.</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> &#8211; Imp&#244;t royal sur les douanes maritimes, per&#231;u sur tous les produits transitant par les ports, &#224; l&#8217;exportation comme &#224; l&#8217;importation.</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="005B336F" w:rsidRDefault="005B336F" w:rsidP="005B336F">
+      <w:pPr>
+        <w:pStyle w:val="Titre2"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Titre 2 d'annexe</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="005B336F" w:rsidRDefault="005B336F" w:rsidP="005B336F">
+      <w:pPr>
+        <w:pStyle w:val="Titre3"/>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+        </w:rPr>
+        <w:t>Titre 3 d'annexe</w:t>
+      </w:r>
+    </w:p>
+    <w:p w:rsidR="005B336F" w:rsidRPr="00AC7149" w:rsidRDefault="005B336F" w:rsidP="005B336F">
+      <w:pPr>
+        <w:pStyle w:val="Annexe"/>
+      </w:pPr>
+      <w:r w:rsidRPr="005B336F">
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:i/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+        <w:t>Araucans.</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rFonts w:eastAsia="Calibri"/>
+          <w:color w:val="000000"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> &#8211; Nom donn&#233; par les Espagnols aux Indiens de la r&#233;gion d&#8217;Arauco d&#8217;abord, puis &#224; l&#8217;ensemble des Indiens rebelles au Sud du Bio-Bio.</w:t>
+      </w:r>
+    </w:p>
+    <w:sectPr w:rsidR="005B336F" w:rsidRPr="00AC7149" w:rsidSect="00BE25EE">
+      <w:pgSz w:w="11906" w:h="16838"/>
+      <w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/>
+      <w:cols w:space="708"/>
+      <w:docGrid w:linePitch="360"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
